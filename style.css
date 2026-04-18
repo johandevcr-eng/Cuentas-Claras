@@ -198,6 +198,14 @@ img {
   border: 1px solid var(--border);
   border-radius: 22px;
   box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-card:hover,
+.card:hover,
+.contact-form:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px rgba(11, 59, 130, 0.16);
 }
 
 .hero-card {
@@ -248,6 +256,37 @@ img {
 
 .section-heading.centered {
   text-align: center;
+}
+
+.metrics-band {
+  margin-top: 1.5rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.metric-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.metric-card strong {
+  display: block;
+  color: var(--primary);
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.metric-card span {
+  color: var(--muted);
+  font-weight: 600;
 }
 
 .grid {
@@ -358,6 +397,34 @@ img {
   margin-bottom: 1rem;
 }
 
+.cta-section {
+  padding-top: 10px;
+  padding-bottom: 24px;
+}
+
+.cta-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(11, 59, 130, 0.98), rgba(23, 76, 154, 0.94));
+  color: white;
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.cta-panel .eyebrow,
+.cta-panel p {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.cta-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
 .bonus-section {
   padding-top: 10px;
 }
@@ -375,6 +442,34 @@ img {
 .bonus-box .eyebrow,
 .bonus-box p {
   color: rgba(255, 255, 255, 0.85);
+}
+
+.faq-section {
+  background: var(--bg);
+}
+
+.faq-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.faq-item {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.faq-item p {
+  margin-top: 0.7rem;
+  color: var(--muted);
 }
 
 .contact-grid {
@@ -395,6 +490,15 @@ img {
 
 .contact-form {
   padding: 1.5rem;
+}
+
+.contact-note {
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  background: rgba(242, 190, 26, 0.14);
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .contact-form label {
@@ -454,18 +558,33 @@ img {
   color: white;
 }
 
+.whatsapp-float {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1000;
+  padding: 0.9rem 1rem;
+  border-radius: 999px;
+  background: #25d366;
+  color: white;
+  font-weight: 800;
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.32);
+}
+
 @media (max-width: 960px) {
   .hero-content,
   .contact-grid,
   .three-cols,
   .two-cols,
-  .process-steps {
+  .process-steps,
+  .metrics-grid {
     grid-template-columns: 1fr;
   }
 
   .bonus-box,
   .footer-inner,
-  .navbar {
+  .navbar,
+  .cta-panel {
     flex-direction: column;
     align-items: flex-start;
   }
