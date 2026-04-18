@@ -12,6 +12,15 @@
   --shadow: 0 18px 45px rgba(11, 59, 130, 0.12);
 }
 
+body.dark-theme {
+  --bg: #08111f;
+  --card: #101b2d;
+  --text: #eef4ff;
+  --muted: #a6bbd3;
+  --border: #233854;
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -25,8 +34,9 @@ html {
 body {
   font-family: "Montserrat", sans-serif;
   color: var(--text);
-  background: #ffffff;
+  background: var(--bg);
   line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -47,7 +57,11 @@ img {
 }
 
 .muted {
-  background: var(--bg);
+  background: rgba(11, 59, 130, 0.04);
+}
+
+body.dark-theme .muted {
+  background: #0c1524;
 }
 
 .hero {
@@ -57,11 +71,23 @@ img {
   padding-bottom: 48px;
 }
 
+body.dark-theme .hero {
+  background:
+    radial-gradient(circle at top left, rgba(242, 190, 26, 0.14), transparent 0 35%),
+    linear-gradient(135deg, #091220 0%, #0d1828 45%, #101b2d 100%);
+}
+
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
+}
+
+.nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
 }
 
 .brand {
@@ -97,6 +123,66 @@ img {
 .nav-links a {
   color: var(--text);
   font-weight: 600;
+}
+
+.theme-toggle {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.theme-toggle-track {
+  width: 72px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffe08a, #f2be1a);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  transform: translateX(0);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.theme-icon {
+  font-size: 1rem;
+  line-height: 1;
+  color: #7a5c00;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.dark-theme .theme-icon {
+  color: #0b2548;
+  font-size: 1rem;
+}
+
+.theme-toggle:hover .theme-toggle-track {
+  transform: translateY(-2px);
+}
+
+body.dark-theme .theme-toggle-track {
+  background: linear-gradient(135deg, #1b2b44, #0b3b82);
+}
+
+body.dark-theme .theme-toggle-thumb {
+  transform: translateX(34px);
+  background: #dfe9f8;
 }
 
 .nav-cta {
@@ -171,8 +257,12 @@ img {
 
 .btn-secondary {
   color: var(--primary);
-  background: white;
+  background: var(--card);
   border: 1px solid var(--border);
+}
+
+body.dark-theme .btn-secondary {
+  color: var(--text);
 }
 
 .hero-highlights {
@@ -277,6 +367,10 @@ img {
   box-shadow: var(--shadow);
 }
 
+body.dark-theme .metric-card {
+  background: #101b2d;
+}
+
 .metric-card strong {
   display: block;
   color: var(--primary);
@@ -336,6 +430,10 @@ img {
   background: linear-gradient(180deg, #ffffff 0%, #f7fbfd 100%);
 }
 
+body.dark-theme .trust-section {
+  background: linear-gradient(180deg, #08111f 0%, #0d1626 100%);
+}
+
 .trust-logos {
   display: flex;
   flex-wrap: wrap;
@@ -350,6 +448,10 @@ img {
   background: white;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+}
+
+body.dark-theme .logo-chip {
+  background: #101b2d;
 }
 
 .logo-chip img {
@@ -380,7 +482,7 @@ img {
 .step {
   position: relative;
   padding: 1.5rem;
-  background: white;
+  background: var(--card);
   border-radius: 20px;
   border: 1px solid var(--border);
 }
@@ -445,7 +547,11 @@ img {
 }
 
 .faq-section {
-  background: var(--bg);
+  background: rgba(11, 59, 130, 0.04);
+}
+
+body.dark-theme .faq-section {
+  background: #0c1524;
 }
 
 .faq-list {
@@ -454,7 +560,7 @@ img {
 }
 
 .faq-item {
-  background: white;
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1rem 1.1rem;
@@ -516,6 +622,8 @@ img {
   border: 1px solid var(--border);
   outline: none;
   font: inherit;
+  background: var(--card);
+  color: var(--text);
 }
 
 .contact-form input:focus,
@@ -558,6 +666,12 @@ img {
   color: white;
 }
 
+body.dark-theme .hero-highlights li,
+body.dark-theme .stats div,
+body.dark-theme .contact-note {
+  background: rgba(255, 255, 255, 0.06);
+}
+
 .whatsapp-float {
   position: fixed;
   right: 18px;
@@ -584,7 +698,8 @@ img {
   .bonus-box,
   .footer-inner,
   .navbar,
-  .cta-panel {
+  .cta-panel,
+  .nav-tools {
     flex-direction: column;
     align-items: flex-start;
   }

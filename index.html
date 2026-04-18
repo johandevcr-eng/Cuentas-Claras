@@ -16,11 +16,20 @@
       <a href="#inicio" class="brand brand-image-link" aria-label="Cuentas Claras CR inicio">
         <img src="img/logo-color.png" alt="Logo Cuentas Claras CR" class="brand-logo">
       </a>
-      <div class="nav-links">
-        <a href="#servicios">Servicios</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contacto" class="nav-cta">Consulta gratis</a>
+      <div class="nav-tools">
+        <div class="nav-links">
+          <a href="#servicios">Servicios</a>
+          <a href="#proceso">Proceso</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacto" class="nav-cta">Consulta gratis</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo oscuro" title="Cambiar tema">
+          <span class="theme-toggle-track">
+            <span class="theme-toggle-thumb">
+              <span id="themeIcon" aria-hidden="true" class="theme-icon">☀</span>
+            </span>
+          </span>
+        </button>
       </div>
     </nav>
 
@@ -311,5 +320,28 @@
       <a href="#inicio">Volver arriba</a>
     </div>
   </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function applyTheme(theme) {
+      const isDark = theme === 'dark';
+      document.body.classList.toggle('dark-theme', isDark);
+      themeIcon.textContent = isDark ? '☾' : '☀';
+      themeToggle.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+      themeToggle.setAttribute('title', isDark ? 'Modo oscuro activo' : 'Modo claro activo');
+    }
+
+    const savedTheme = localStorage.getItem('cc-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
+      localStorage.setItem('cc-theme', nextTheme);
+      applyTheme(nextTheme);
+    });
+  </script>
 </body>
 </html>
