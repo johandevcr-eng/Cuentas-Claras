@@ -844,12 +844,26 @@ body.dark-theme .icon {
   right: 18px;
   bottom: 18px;
   z-index: 1000;
-  padding: 0.9rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.85rem 1rem;
   border-radius: 999px;
   background: #25d366;
   color: white;
+  font-size: 1rem;
   font-weight: 800;
   box-shadow: 0 14px 30px rgba(37, 211, 102, 0.32);
+}
+
+.whatsapp-icon {
+  display: none;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.whatsapp-label {
+  line-height: 1;
 }
 
 @media (max-width: 960px) {
@@ -945,6 +959,21 @@ body.dark-theme .icon {
     align-items: stretch;
   }
 
+  .footer-brand {
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .footer-logo {
+    margin: 0 auto;
+  }
+
+  .footer a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
   .nav-links a,
   .btn {
     width: 100%;
@@ -953,6 +982,21 @@ body.dark-theme .icon {
   .whatsapp-float {
     right: 12px;
     bottom: 12px;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    padding: 0;
+    gap: 0;
+    border-radius: 50%;
+    font-size: 1.15rem;
+  }
+
+  .whatsapp-icon {
+    display: inline-flex;
+  }
+
+  .whatsapp-label {
+    display: none;
   }
 }
 
