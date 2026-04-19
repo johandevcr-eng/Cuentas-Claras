@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const themeToggle = document.getElementById('themeToggle');
-  const themeIcon = document.getElementById('themeIcon');
+  localStorage.removeItem('cc-theme');
+  document.body.classList.remove('dark-theme');
+
   const incomeInput = document.getElementById('ingresos');
   const expensesInput = document.getElementById('gastos');
   const rateInput = document.getElementById('tasa');
@@ -10,20 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const expensesResult = document.getElementById('resultadoGastos');
   const baseResult = document.getElementById('resultadoBase');
   const taxResult = document.getElementById('resultadoImpuesto');
-
-  function applyTheme(theme) {
-    const isDark = theme === 'dark';
-    document.body.classList.toggle('dark-theme', isDark);
-
-    if (themeIcon) {
-      themeIcon.textContent = isDark ? '☾' : '☀';
-    }
-
-    if (themeToggle) {
-      themeToggle.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
-      themeToggle.setAttribute('title', isDark ? 'Modo oscuro activo' : 'Modo claro activo');
-    }
-  }
 
   function formatCurrency(value) {
     return new Intl.NumberFormat('es-CR', {
@@ -50,18 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     taxResult.textContent = formatCurrency(estimatedTax);
   }
 
-  const savedTheme = localStorage.getItem('cc-theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
   calculateTax();
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const nextTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
-      localStorage.setItem('cc-theme', nextTheme);
-      applyTheme(nextTheme);
-    });
-  }
 
   if (calculateButton) {
     calculateButton.addEventListener('click', calculateTax);
