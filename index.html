@@ -228,14 +228,65 @@
       </div>
     </section>
 
-    <section class="section bonus-section">
-      <div class="container bonus-box">
-        <div>
-          <p class="eyebrow">Valor adicional</p>
-          <h2>Posiciónate mejor con información útil</h2>
-          <p>Incluye una guía gratuita o una calculadora fiscal básica para demostrar experiencia y captar más prospectos calificados.</p>
+    <section class="section tax-section" id="calculadora">
+      <div class="container tax-wrapper">
+        <div class="section-heading centered">
+          <p class="eyebrow">Calculadora fiscal básica</p>
+          <h2>Estima de forma rápida tu carga tributaria</h2>
+          <p class="tax-intro">Ingresa tus montos aproximados y obtén una referencia simple de utilidad e impuesto estimado.</p>
         </div>
-        <a href="#contacto" class="btn btn-primary">Quiero más información</a>
+
+        <div class="tax-calculator">
+          <div class="tax-form-wrap card">
+            <div class="calculator-grid">
+              <div>
+                <label for="ingresos">Ingresos mensuales</label>
+                <input type="number" id="ingresos" placeholder="Ej: 1500000" min="0">
+              </div>
+
+              <div>
+                <label for="gastos">Gastos deducibles</label>
+                <input type="number" id="gastos" placeholder="Ej: 450000" min="0">
+              </div>
+
+              <div>
+                <label for="tasa">Tasa estimada</label>
+                <select id="tasa">
+                  <option value="10">Régimen simplificado · 10%</option>
+                  <option value="15" selected>Servicios profesionales · 15%</option>
+                  <option value="25">Empresa general · 25%</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="calculator-actions">
+              <button class="btn btn-primary" id="calcularImpuesto" type="button">Calcular ahora</button>
+              <p class="tax-note">Este cálculo es orientativo y no reemplaza una asesoría contable formal.</p>
+            </div>
+          </div>
+
+          <div class="tax-results card">
+            <h3>Resultado estimado</h3>
+            <div class="result-list">
+              <div class="result-item">
+                <span>Ingresos reportados</span>
+                <strong id="resultadoIngresos">₡0</strong>
+              </div>
+              <div class="result-item">
+                <span>Gastos deducibles</span>
+                <strong id="resultadoGastos">₡0</strong>
+              </div>
+              <div class="result-item">
+                <span>Base gravable</span>
+                <strong id="resultadoBase">₡0</strong>
+              </div>
+              <div class="result-item total-item">
+                <span>Impuesto estimado</span>
+                <strong id="resultadoImpuesto">₡0</strong>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -324,6 +375,15 @@
   <script>
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
+    const incomeInput = document.getElementById('ingresos');
+    const expensesInput = document.getElementById('gastos');
+    const rateInput = document.getElementById('tasa');
+    const calculateButton = document.getElementById('calcularImpuesto');
+
+    const incomeResult = document.getElementById('resultadoIngresos');
+    const expensesResult = document.getElementById('resultadoGastos');
+    const baseResult = document.getElementById('resultadoBase');
+    const taxResult = document.getElementById('resultadoImpuesto');
 
     function applyTheme(theme) {
       const isDark = theme === 'dark';
@@ -333,15 +393,42 @@
       themeToggle.setAttribute('title', isDark ? 'Modo oscuro activo' : 'Modo claro activo');
     }
 
+    function formatCurrency(value) {
+      return new Intl.NumberFormat('es-CR', {
+        style: 'currency',
+        currency: 'CRC',
+        maximumFractionDigits: 0
+      }).format(value || 0);
+    }
+
+    function calculateTax() {
+      const income = Number(incomeInput.value) || 0;
+      const expenses = Number(expensesInput.value) || 0;
+      const rate = (Number(rateInput.value) || 0) / 100;
+      const taxableBase = Math.max(0, income - expenses);
+      const estimatedTax = taxableBase * rate;
+
+      incomeResult.textContent = formatCurrency(income);
+      expensesResult.textContent = formatCurrency(expenses);
+      baseResult.textContent = formatCurrency(taxableBase);
+      taxResult.textContent = formatCurrency(estimatedTax);
+    }
+
     const savedTheme = localStorage.getItem('cc-theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+    calculateTax();
 
     themeToggle.addEventListener('click', () => {
       const nextTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
       localStorage.setItem('cc-theme', nextTheme);
       applyTheme(nextTheme);
     });
+
+    calculateButton.addEventListener('click', calculateTax);
+    incomeInput.addEventListener('input', calculateTax);
+    expensesInput.addEventListener('input', calculateTax);
+    rateInput.addEventListener('change', calculateTax);
   </script>
 </body>
 </html>
