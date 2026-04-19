@@ -42,6 +42,7 @@ body {
   background: var(--bg);
   line-height: 1.6;
   transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
 a {
@@ -124,6 +125,7 @@ body.dark-theme .hero {
   display: flex;
   align-items: center;
   gap: 1.2rem;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -858,7 +860,8 @@ body.dark-theme .icon {
   .process-steps,
   .metrics-grid,
   .tax-calculator,
-  .calculator-grid {
+  .calculator-grid,
+  .stats {
     grid-template-columns: 1fr;
   }
 
@@ -870,17 +873,63 @@ body.dark-theme .icon {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .nav-tools,
+  .nav-links,
+  .cta-actions {
+    width: 100%;
+  }
+
+  .hero-copy,
+  .section-heading,
+  .tax-intro {
+    text-align: center;
+  }
+
+  .subtitle {
+    margin: 0 auto;
+  }
+
+  .hero-actions,
+  .hero-highlights,
+  .cta-actions {
+    justify-content: center;
+  }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .container {
+    width: min(1120px, calc(100% - 1.25rem));
+  }
+
   .section {
     padding: 72px 0;
   }
 
-  .nav-links {
-    flex-wrap: wrap;
+  .navbar,
+  .nav-tools,
+  .nav-links,
+  .footer-inner,
+  .footer-brand {
+    align-items: center;
+    text-align: center;
   }
 
+  .hero-card,
+  .card,
+  .contact-form,
+  .tax-form-wrap,
+  .tax-results {
+    padding: 1.15rem;
+  }
+
+  .calculator-actions,
+  .cta-actions {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
   .brand-logo {
     height: 58px;
   }
@@ -896,7 +945,53 @@ body.dark-theme .icon {
     align-items: stretch;
   }
 
+  .nav-links a,
   .btn {
     width: 100%;
+  }
+
+  .whatsapp-float {
+    right: 12px;
+    bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .hero-copy h1 {
+    font-size: 1.9rem;
+  }
+
+  .subtitle,
+  .tax-intro,
+  .tax-note,
+  .contact-section p {
+    font-size: 0.95rem;
+  }
+
+  .theme-toggle-track {
+    width: 64px;
+    height: 34px;
+  }
+
+  .theme-toggle-thumb {
+    width: 24px;
+    height: 24px;
+  }
+
+  body.dark-theme .theme-toggle-thumb {
+    transform: translateX(30px);
+  }
+
+  .result-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-logo {
+    width: 84px;
   }
 }
