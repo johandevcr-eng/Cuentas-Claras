@@ -1193,3 +1193,99 @@ body.dark-theme .icon {
 #servicios .section-heading.centered h2 {
   white-space: nowrap;
 }
+
+/* --- Dinamismo visual y microinteracciones --- */
+
+/* Animación de entrada fade-up para secciones principales */
+.section, .hero-card, .card, .step, .faq-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+.section.visible, .hero-card.visible, .card.visible, .step.visible, .faq-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gradiente animado en hero */
+@keyframes heroGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.hero {
+  background: linear-gradient(120deg, #eef4ff 0%, #fffaf0 100%, #ffe066 60%);
+  background-size: 200% 200%;
+  animation: heroGradient 8s ease-in-out infinite;
+}
+
+/* Tarjetas con efecto hover dinámico */
+.card, .step, .faq-item {
+  transition: box-shadow 0.3s cubic-bezier(.4,0,.2,1), transform 0.3s cubic-bezier(.4,0,.2,1);
+}
+.card:hover, .step:hover, .faq-item:hover {
+  box-shadow: 0 8px 32px 0 rgba(242,190,26,0.18), 0 2px 8px 0 rgba(11,59,130,0.10);
+  transform: translateY(-6px) scale(1.03);
+  z-index: 2;
+}
+
+/* Botones con efecto de resplandor y escala */
+.btn {
+  transition: box-shadow 0.25s, transform 0.18s, background 0.25s;
+}
+.btn-primary:hover {
+  box-shadow: 0 0 0 4px #ffe06655, 0 12px 30px rgba(242,190,26,0.35);
+  background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+  transform: scale(1.06);
+}
+.btn-secondary:hover {
+  background: var(--accent-soft);
+  color: #1f2b3a;
+  border-color: var(--accent);
+  transform: scale(1.04);
+}
+
+/* Navegación con subrayado animado */
+.nav-links a {
+  position: relative;
+  transition: color 0.2s;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.25s cubic-bezier(.4,0,.2,1);
+}
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Íconos y números con animación de rebote al pasar el mouse */
+.icon, .step span {
+  transition: transform 0.18s cubic-bezier(.4,0,.2,1), box-shadow 0.18s;
+}
+.icon:hover, .step span:hover {
+  transform: scale(1.13) rotate(-6deg);
+  box-shadow: 0 4px 18px 0 #ffe06655;
+}
+
+/* FAQ animación de apertura */
+details[open] > summary {
+  color: var(--accent-dark);
+  font-size: 1.08em;
+  transition: color 0.2s;
+}
+
+/* Microinteracción en mini-badge */
+.mini-badge {
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.mini-badge:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 12px 0 #ffe06655;
+}

@@ -54,4 +54,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if (rateInput) {
     rateInput.addEventListener('change', calculateTax);
   }
+
+  // Animación de entrada para secciones y tarjetas al hacer scroll
+  function revealOnScroll() {
+    const elements = document.querySelectorAll('.section, .hero-card, .card, .step, .faq-item');
+    const triggerBottom = window.innerHeight * 0.92;
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < triggerBottom) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  revealOnScroll();
+  window.addEventListener('scroll', revealOnScroll);
 });
