@@ -1144,8 +1144,9 @@ body.dark-theme .icon {
 }
 
 .servicios-info-col {
-  flex: 1 1 320px;
-  max-width: 420px;
+  flex: 0 0 50%;
+  max-width: 50%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1153,7 +1154,9 @@ body.dark-theme .icon {
 }
 
 .servicios-cards-col {
-  flex: 2 1 600px;
+  flex: 0 0 50%;
+  max-width: 50%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
