@@ -1192,3 +1192,14 @@ body.dark-theme .icon {
 .servicios-list li:last-child {
   margin-bottom: 0;
 }
+
+/* Alinear ambas columnas de servicios arriba y abajo (igualar altura) */
+.servicios-grid {
+  align-items: stretch;
+}
+.servicios-info-col,
+.servicios-cards-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
