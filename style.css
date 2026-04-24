@@ -585,15 +585,19 @@ body.dark-theme .logo-chip {
 }
 
 .step span {
-  display: inline-grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5em;
+  height: 2.5em;
+  background: #ffe066;
+  color: #222;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary), var(--accent-dark));
-  color: white;
-  font-weight: 800;
-  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.3em;
+  margin-bottom: 0.7em;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+  border: 2px solid #ffe066;
 }
 
 .cta-section {
