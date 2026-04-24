@@ -160,6 +160,22 @@ body {
   overflow-x: hidden;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("img/fondo-banner.png");
+  background-size: 20% auto;
+  background-position: left top;
+  background-repeat: no-repeat;
+  opacity: 0.50;
+  z-index: -9999;
+  pointer-events: none;
+}
+
 a {
   text-decoration: none;
 }
@@ -177,14 +193,15 @@ img {
   padding: 88px 0;
 }
 
-.muted {
-  /* background: linear-gradient(135deg, rgba(11, 59, 130, 0.98), rgba(23, 76, 154, 0.94)); */
+
+
+main {
+  position: relative;
+  overflow: hidden;
 }
 
 .hero {
-  background:
-    radial-gradient(circle at top left, rgba(242, 190, 26, 0.22), transparent 0 35%),
-    linear-gradient(135deg, #eef4ff 0%, #ffffff 45%, #fffaf0 100%);
+  background: transparent;
   padding-bottom: 48px;
   position: relative;
   overflow: hidden;
@@ -286,8 +303,9 @@ img {
   font-size: 1.6rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.10em;
   margin-bottom: 0.9rem;
+  text-align: center;
 }
 
 .hero-copy h1,
@@ -408,8 +426,13 @@ body.dark-theme .logo-chip {
   justify-self: start;
   background: #111;
   box-shadow: 0 18px 44px rgba(11, 59, 130, 0.28);
-  animation: flyer-float 2.8s ease-in-out infinite;
-  will-change: transform, box-shadow;
+  animation: none;
+  will-change: auto;
+}
+
+.flyer-card:hover {
+  transform: none;
+  box-shadow: 0 18px 44px rgba(11, 59, 130, 0.28);
 }
 
 @keyframes flyer-float {
@@ -424,6 +447,26 @@ body.dark-theme .logo-chip {
   100% {
     transform: translateY(0);
     box-shadow: 0 16px 36px rgba(11, 59, 130, 0.24);
+  }
+}
+
+.btn-float {
+  animation: btn-float 2.8s ease-in-out infinite;
+  will-change: transform, box-shadow;
+}
+
+@keyframes btn-float {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 10px 24px rgba(242, 190, 26, 0.32);
+  }
+  50% {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 34px rgba(242, 190, 26, 0.42);
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 10px 24px rgba(242, 190, 26, 0.32);
   }
 }
 
@@ -653,10 +696,31 @@ body.dark-theme .metric-card {
 }
 
 
+.process-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.95fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
 .process-steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+}
+
+.process-map-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.process-map-image {
+  width: 100%;
+  height: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 14px;
 }
 
 .step {
@@ -901,6 +965,7 @@ body.dark-theme .icon {
   .hero-content,
   .contact-grid,
   .two-cols,
+  .process-layout,
   .process-steps,
   .metrics-grid,
   .tax-calculator,
@@ -1225,7 +1290,6 @@ body.dark-theme .icon {
 #servicios.section {
   background: linear-gradient(135deg, rgba(11, 59, 130, 0.98), rgba(23, 76, 154, 0.94));
   color: #fff;
-  border-radius: 32px;
   position: relative;
   z-index: 2;
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
@@ -1295,16 +1359,9 @@ body.dark-theme .icon {
   transform: translateY(0);
 }
 
-/* Gradiente animado en hero */
-@keyframes heroGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 .hero {
-  background: linear-gradient(120deg, #eef4ff 0%, #fffaf0 100%, #ffe066 60%);
-  background-size: 200% 200%;
-  animation: heroGradient 8s ease-in-out infinite;
+  background: transparent;
+  animation: none;
 }
 
 /* Tarjetas con efecto hover dinámico */
