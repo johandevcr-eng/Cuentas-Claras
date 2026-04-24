@@ -121,7 +121,7 @@ img {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 2rem;
-  align-items: center;
+  align-items: start;
   padding-top: 40px;
 }
 
@@ -245,74 +245,101 @@ body.dark-theme .logo-chip {
 
 .flyer-card {
   padding: 0;
-  border: 3px solid #1e1e1e;
-  border-radius: 8px;
+  border: 2px solid #1e1e1e;
+  border-radius: 6px;
   overflow: hidden;
-  width: min(100%, 600px);
+  width: min(100%, 420px);
   justify-self: start;
-  background: #f8f8f8;
+  background: #111;
 }
 
 .flyer-top {
-  display: grid;
-  grid-template-columns: 60% 40%;
+  position: relative;
+  display: block;
+}
+
+.flyer-top::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.08) 42%, rgba(0, 0, 0, 0.56) 100%);
+  pointer-events: none;
 }
 
 .flyer-photo {
   width: 100%;
-  height: 100%;
-  max-height: 400px;
+  height: auto;
+  max-height: 560px;
   object-fit: cover;
   object-position: top center;
   display: block;
+  filter: brightness(0.92);
 }
 
 .flyer-copy {
-  padding: 1.1rem 1rem 1rem;
-  font-family: "Montserrat", sans-serif;
-  color: var(--text);
-  line-height: 1.35;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  padding: 1.05rem 0.95rem 0.95rem;
+  font-family: "Patrick Hand", "Montserrat", sans-serif;
+  color: #fff;
+  line-height: 1.15;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 0.75rem;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  pointer-events: none;
 }
 
 .flyer-copy .mini-badge {
-  width: fit-content;
+  width: max-content;
   margin: 0;
-  background: #efe0ad;
-  color: #3a2d00;
-  font-size: 0.78rem;
+  background: transparent;
+  color: #fff;
+  font-size: 1.05rem;
   font-weight: 700;
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  letter-spacing: 0.02em;
+  padding: 0;
+  border-radius: 0;
+  letter-spacing: 0;
+  text-shadow:
+    -1px -1px 0 #0d0d0d,
+    1px -1px 0 #0d0d0d,
+    -1px 1px 0 #0d0d0d,
+    1px 1px 0 #0d0d0d,
+    0 2px 3px rgba(0, 0, 0, 0.55);
 }
 
 .flyer-copy h2 {
   margin: 0;
-  font-size: 1.55rem;
+  font-size: 1.9rem;
   font-weight: 800;
-  color: #041d42;
-  line-height: 1.2;
+  color: #fff;
+  line-height: 1.02;
+  text-shadow:
+    -1px -1px 0 #0d0d0d,
+    1px -1px 0 #0d0d0d,
+    -1px 1px 0 #0d0d0d,
+    1px 1px 0 #0d0d0d,
+    0 3px 4px rgba(0, 0, 0, 0.58);
 }
 
-.flyer-description {
-  margin: 0;
-  color: #3d4b61;
-  font-size: 0.9rem;
-  font-weight: 500;
-  line-height: 1.55;
+.flyer-copy .flyer-description {
+  margin: auto 0 0;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.12;
+  max-width: 95%;
+  text-shadow:
+    -1px -1px 0 #0d0d0d,
+    1px -1px 0 #0d0d0d,
+    -1px 1px 0 #0d0d0d,
+    1px 1px 0 #0d0d0d,
+    0 3px 5px rgba(0, 0, 0, 0.62);
 }
 
 .flyer-bottom {
-  min-height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.6rem;
-  background: #f8f8f8;
+  display: none;
 }
 
 .flyer-brand-logo {
@@ -326,7 +353,7 @@ body.dark-theme .logo-chip {
   font-size: 1.6rem;
 }
 
-.hero-card p {
+.hero-card p:not(.flyer-description) {
   color: var(--muted);
 }
 
@@ -901,7 +928,15 @@ body.dark-theme .icon {
   }
 
   .flyer-copy h2 {
-    font-size: 2.1rem;
+    font-size: 1.75rem;
+  }
+
+  .flyer-copy .mini-badge {
+    font-size: 0.95rem;
+  }
+
+  .flyer-description {
+    font-size: 1.12rem;
   }
 
   .subtitle {
@@ -984,17 +1019,12 @@ body.dark-theme .icon {
   }
 
   .flyer-top {
-    grid-template-columns: 1fr;
     min-height: unset;
   }
 
   .flyer-photo {
     height: auto;
-    max-height: 340px;
-  }
-
-  .flyer-copy {
-    text-align: left;
+    max-height: 440px;
   }
 
   .flyer-copy {
@@ -1002,11 +1032,15 @@ body.dark-theme .icon {
   }
 
   .flyer-copy h2 {
-    font-size: 1.85rem;
+    font-size: 1.45rem;
   }
 
   .flyer-description {
     font-size: 1rem;
+  }
+
+  .flyer-copy .mini-badge {
+    font-size: 0.88rem;
   }
 
   .whatsapp-float {
