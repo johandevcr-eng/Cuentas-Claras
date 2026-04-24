@@ -101,11 +101,12 @@
 .hero-actions-row {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   gap: 1.2rem;
 }
 
 .hero-actions-info {
-  min-width: 210px;
+  min-width: 0;
   max-width: 270px;
 }
 
@@ -217,7 +218,7 @@ img {
 }
 
 .brand-logo {
-  height: 200px;
+  height: clamp(72px, 14vw, 200px);
   width: auto;
   display: block;
 }
@@ -876,7 +877,6 @@ body.dark-theme .icon {
 @media (max-width: 960px) {
   .hero-content,
   .contact-grid,
-  .three-cols,
   .two-cols,
   .process-steps,
   .metrics-grid,
@@ -931,6 +931,26 @@ body.dark-theme .icon {
   .hero-highlights,
   .cta-actions {
     justify-content: center;
+  }
+
+  .three-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-actions-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-actions-col {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .hero-actions-info {
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -1027,6 +1047,31 @@ body.dark-theme .icon {
     font-size: 0.88rem;
   }
 
+  .three-cols {
+    grid-template-columns: 1fr;
+  }
+
+  #servicios.section {
+    border-radius: 20px;
+    padding-top: 52px;
+  }
+
+  #servicios.section::before {
+    top: -18px;
+    width: calc(100% - 1.5rem);
+    max-width: 420px;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    padding: 0.45em 1em;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.25;
+  }
+
+  #servicios .section-heading.centered h2 {
+    white-space: normal;
+  }
+
   .whatsapp-float {
     right: 10px;
     bottom: 10px;
@@ -1072,6 +1117,10 @@ body.dark-theme .icon {
   .footer-logo {
     width: 84px;
   }
+
+  #servicios.section::before {
+    font-size: 0.82rem;
+  }
 }
 
 /* --- Servicios sección: columnas flex --- */
@@ -1111,8 +1160,23 @@ body.dark-theme .icon {
     flex-direction: column;
     gap: 1.5rem;
   }
+
+  .servicios-info-col,
+  .servicios-cards-col {
+    flex: 1 1 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+
   .servicios-cards-col {
     margin-top: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
   }
 }
 
