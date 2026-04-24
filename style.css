@@ -161,6 +161,10 @@ img {
   align-items: start;
 }
 
+.hero-content {
+  align-items: stretch;
+}
+
 .eyebrow {
   color: var(--accent);
   font-size: 1.6rem;
@@ -291,25 +295,24 @@ body.dark-theme .logo-chip {
 
 .flyer-top {
   position: relative;
-  display: block;
+  height: 100%;
+  width: 100%;
+  display: flex;
 }
 
 .flyer-top::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.08) 42%, rgba(0, 0, 0, 0.56) 100%);
-  pointer-events: none;
+  display: none;
 }
 
 .flyer-photo {
   width: 100%;
-  height: auto;
-  max-height: 560px;
+  height: 100%;
+  max-height: none;
   object-fit: cover;
   object-position: top center;
   display: block;
-  filter: brightness(0.92);
+  border-radius: 6px;
+  box-shadow: 0 8px 32px 0 rgba(11,59,130,0.10);
 }
 
 .flyer-copy {
