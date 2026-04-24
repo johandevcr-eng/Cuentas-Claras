@@ -1184,3 +1184,11 @@ body.dark-theme .icon {
   margin: 0 auto 0.5em auto;
   max-width: 700px;
 }
+
+/* Espaciado entre elementos de la lista de servicios */
+.servicios-list li {
+  margin-bottom: 1.1em;
+}
+.servicios-list li:last-child {
+  margin-bottom: 0;
+}
