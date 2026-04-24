@@ -1172,3 +1172,15 @@ body.dark-theme .icon {
     margin-top: 0.5rem;
   }
 }
+
+/* Título principal centrado sobre ambas columnas en servicios */
+#servicios .section-heading.centered {
+  margin-bottom: 2.5rem;
+}
+#servicios .section-heading.centered h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 auto 0.5em auto;
+  max-width: 700px;
+}
