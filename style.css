@@ -383,6 +383,24 @@ body.dark-theme .logo-chip {
   width: min(100%, 420px);
   justify-self: start;
   background: #111;
+  box-shadow: 0 18px 44px rgba(11, 59, 130, 0.28);
+  animation: flyer-float 2.8s ease-in-out infinite;
+  will-change: transform, box-shadow;
+}
+
+@keyframes flyer-float {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 16px 36px rgba(11, 59, 130, 0.24);
+  }
+  50% {
+    transform: translateY(-10px);
+    box-shadow: 0 28px 54px rgba(11, 59, 130, 0.34);
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 16px 36px rgba(11, 59, 130, 0.24);
+  }
 }
 
 .flyer-top {
@@ -1270,4 +1288,13 @@ details[open] > summary {
   background: var(--accent);
   color: #fff;
   box-shadow: 0 2px 12px 0 #ffe06655;
+}
+
+
+/* Sombra suave sin borde ni hover para .card */
+.card {
+  box-shadow: 0 8px 32px 0 rgba(11,59,130,0.10);
+  border: none;
+  transition: none;
+  z-index: 2;
 }
