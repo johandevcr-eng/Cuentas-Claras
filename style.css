@@ -186,10 +186,33 @@ img {
     radial-gradient(circle at top left, rgba(242, 190, 26, 0.22), transparent 0 35%),
     linear-gradient(135deg, #eef4ff 0%, #ffffff 45%, #fffaf0 100%);
   padding-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("img/fondo-banner.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  z-index: 0;
 }
 
 .hero .container {
   width: min(1220px, calc(100% - 2rem));
+}
+
+.navbar,
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 .navbar {
@@ -1091,6 +1114,7 @@ body.dark-theme .icon {
   .whatsapp-label {
     display: none;
   }
+
 }
 
 @media (max-width: 480px) {
