@@ -1185,6 +1185,12 @@ body.dark-theme .icon {
   max-width: 700px;
 }
 
+/* Evita salto de línea forzado en el título principal de servicios */
+#servicios .section-heading.centered h2 {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
 /* Espaciado entre elementos de la lista de servicios */
 .servicios-list li {
   margin-bottom: 1.1em;
