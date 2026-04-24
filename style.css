@@ -1133,3 +1133,39 @@ body.dark-theme .icon {
     width: 84px;
   }
 }
+
+/* --- Servicios sección: columnas flex --- */
+.servicios-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 3.5rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.servicios-info-col {
+  flex: 1 1 320px;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.servicios-cards-col {
+  flex: 2 1 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .servicios-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .servicios-cards-col {
+    margin-top: 0.5rem;
+  }
+}
