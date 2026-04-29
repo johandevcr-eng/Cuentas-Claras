@@ -900,9 +900,16 @@ body.dark-theme .faq-item summary {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
   align-items: start;
+  justify-items: center;
+}
+
+.contact-heading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .contact-list {
@@ -916,6 +923,7 @@ body.dark-theme .faq-item summary {
 
 .contact-form {
   padding: 1.5rem;
+  width: min(100%, 760px);
 }
 
 .contact-note {
