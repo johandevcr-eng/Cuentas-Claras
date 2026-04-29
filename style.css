@@ -1426,8 +1426,20 @@ body.dark-theme .icon {
 .servicios-extra-pill-wrap {
   display: flex;
   justify-content: center;
-  margin: 2.4rem 0 0.8rem;
+  margin: 1.35rem 0 0.65rem;
   padding: 0 1.1rem;
+}
+
+.servicios-cta-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 0.45rem 0 0;
+  padding: 0 1.1rem;
+}
+
+.servicios-cta-wrap .btn {
+  min-width: 220px;
+  text-align: center;
 }
 
 .servicios-extra-pill {
@@ -1490,6 +1502,12 @@ body.dark-theme .icon {
     text-align: center;
     padding: 0.74rem 0.92rem 0.7rem;
     font-size: clamp(0.95rem, 3.3vw, 1.1rem);
+  }
+
+  .servicios-cta-wrap .btn {
+    min-width: 0;
+    width: 100%;
+    max-width: 360px;
   }
 }
 
