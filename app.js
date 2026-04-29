@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
   localStorage.removeItem('cc-theme');
   document.body.classList.remove('dark-theme');
 
+  const backToTopButton = document.getElementById('backToTopBtn');
+  const whatsappFloatButton = document.querySelector('.whatsapp-float[data-href]');
+
   const incomeInput = document.getElementById('ingresos');
   const expensesInput = document.getElementById('gastos');
   const rateInput = document.getElementById('tasa');
@@ -64,6 +67,25 @@ document.addEventListener('DOMContentLoaded', () => {
       if (rect.top < triggerBottom) {
         el.classList.add('visible');
       }
+    });
+
+    if (backToTopButton) {
+      backToTopButton.classList.toggle('is-visible', window.scrollY > 220);
+    }
+  }
+
+  if (backToTopButton) {
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  if (whatsappFloatButton) {
+    whatsappFloatButton.addEventListener('click', () => {
+      window.open(whatsappFloatButton.dataset.href, '_blank', 'noopener');
     });
   }
 
