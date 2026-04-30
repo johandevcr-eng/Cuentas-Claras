@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-  localStorage.removeItem('cc-theme');
+  // Limpiar tema oscuro (si es aplicado)
+  try {
+    localStorage.removeItem('cc-theme');
+  } catch (e) {
+    // localStorage no disponible
+  }
   document.body.classList.remove('dark-theme');
 
   const backToTopButton = document.getElementById('backToTopBtn');
@@ -16,11 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const taxResult = document.getElementById('resultadoImpuesto');
 
   function formatCurrency(value) {
-    return new Intl.NumberFormat('es-CR', {
-      style: 'currency',
-      currency: 'CRC',
-      maximumFractionDigits: 0
-    }).format(value || 0);
+    value = value || 0;
+    // Fallback para navegadores sin Intl
+    if (typeof Intl !== 'undefined' && Intl.NumberFormat) {
+      return new Intl.NumberFormat('es-CR', {
+        style: 'currency',
+        currency: 'CRC',
+        maximumFractionDigits: 0
+      }).format(value);
+    }
+    // Fallback manual
+    return '₡ ' + Math.round(value).toLocaleString('es-CR');
   }
 
   function calculateTax() {
@@ -76,16 +87,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (backToTopButton) {
     backToTopButton.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      // Scroll suave con fallback para navegadores antiguos
+      if (window.scrollTo && window.scrollTo.length === 0) {
+        // Navegador sin soporte para opciones
+        window.scrollTo(0, 0);
+      } else {
+        try {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        } catch (e) {
+          // Fallback
+          window.scrollTo(0, 0);
+        }
+      }
     });
   }
 
   if (whatsappFloatButton) {
     whatsappFloatButton.addEventListener('click', () => {
-      window.open(whatsappFloatButton.dataset.href, '_blank', 'noopener');
+      const href = whatsappFloatButton.getAttribute('data-href');
+      if (href) {
+        window.open(href, '_blank', 'noopener');
+      }
     });
   }
 

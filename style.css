@@ -467,6 +467,7 @@ body.dark-theme .metric-card,
 body.dark-theme .logo-chip {
   background: linear-gradient(180deg, rgba(15, 27, 46, 0.96), rgba(11, 21, 36, 0.96));
   border-color: rgba(125, 178, 255, 0.14);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
 

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Especificar el sitemap si existe
+# Sitemap: https://www.tudominio.com/sitemap.xml
