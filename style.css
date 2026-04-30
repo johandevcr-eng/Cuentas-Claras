@@ -1663,6 +1663,124 @@ body.dark-theme .icon {
   
 }
 
+/* =============================================
+   BANNER DE CONSENTIMIENTO DE COOKIES
+   ============================================= */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: #0b2a5e;
+  border-top: 3px solid var(--accent);
+  box-shadow: 0 -4px 24px rgba(11, 59, 130, 0.30);
+  padding: 1rem 0;
+  animation: cookieSlidein 0.4s cubic-bezier(.22,1,.36,1) both;
+}
+
+.cookie-banner[hidden] {
+  display: none;
+}
+
+@keyframes cookieSlidein {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+
+.cookie-banner-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cookie-banner-text {
+  flex: 1 1 300px;
+  color: #d8e6ff;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.cookie-icon {
+  margin-right: 0.35rem;
+  font-style: normal;
+}
+
+.cookie-banner-text strong {
+  color: #fff;
+}
+
+.cookie-banner-text a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cookie-banner-text a:hover {
+  color: var(--accent-soft);
+}
+
+.cookie-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.cookie-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s, transform 0.15s;
+  white-space: nowrap;
+  border: none;
+}
+
+.cookie-btn-accept {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+.cookie-btn-accept:hover {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+.cookie-btn-more {
+  background: transparent;
+  color: #d8e6ff;
+  border: 1.5px solid rgba(216,230,255,0.35);
+}
+
+.cookie-btn-more:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .cookie-banner-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+
+  .cookie-banner-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
 .servicios-cards-col {
   flex: 0 0 50%;
   max-width: 50%;

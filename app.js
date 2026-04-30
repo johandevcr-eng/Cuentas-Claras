@@ -7,6 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   document.body.classList.remove('dark-theme');
 
+  // Banner de consentimiento de cookies
+  const cookieBanner = document.getElementById('cookie-banner');
+  const cookieAcceptBtn = document.getElementById('cookie-accept');
+
+  try {
+    if (cookieBanner && !localStorage.getItem('cc-cookies-accepted')) {
+      cookieBanner.removeAttribute('hidden');
+    }
+  } catch (e) {
+    // Si localStorage no está disponible, mostrar siempre
+    if (cookieBanner) cookieBanner.removeAttribute('hidden');
+  }
+
+  if (cookieAcceptBtn) {
+    cookieAcceptBtn.addEventListener('click', () => {
+      try { localStorage.setItem('cc-cookies-accepted', '1'); } catch (e) {}
+      if (cookieBanner) {
+        cookieBanner.style.animation = 'cookieSlidein 0.3s reverse both';
+        setTimeout(() => cookieBanner.setAttribute('hidden', ''), 280);
+      }
+    });
+  }
   const backToTopButton = document.getElementById('backToTopBtn');
   const whatsappFloatButton = document.querySelector('.whatsapp-float[data-href]');
 

@@ -5,8 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-	<meta name="description"
-		content="Servicios contables y asesoría fiscal para PyMEs, emprendedores y negocios que buscan tranquilidad legal." />
+	<meta name="description" content="Servicios contables y asesoría fiscal para PyMEs, emprendedores y negocios que buscan tranquilidad legal." />
 	<meta name="theme-color" content="#0b3b82" />
 	<meta name="msapplication-TileColor" content="#0b3b82" />
 	<meta property="og:title" content="Cuentas Claras | Servicios Contables" />
@@ -309,10 +308,16 @@
 					<label for="Comentarios">Comentarios</label>
 					<textarea id="comentarios" name="comentarios" placeholder="Escribe brevemente tu consulta..." rows="4" required></textarea>
 
-			<label class="terminos">
-				<input type="checkbox" id="acepto" name="acepto" required>
-				<span>Acepto las <a href="politicas.html" target="_blank">políticas y términos y condiciones</a></span>
-			</label>
+				<label class="terminos">
+					<input type="checkbox" id="acepto" name="acepto" required>
+					<span>Acepto las <a href="politicas.html" target="_blank">Políticas de Privacidad</a></span>
+				</label>
+
+				
+				<label class="terminos">
+					<input type="checkbox" id="acepto" name="acepto" required>
+					<span>Acepto los <a href="politicas.html" target="_blank">Términos y Condiciones</a></span>
+				</label>
 
 
 					<button type="submit" class="btn btn-primary full">Enviar solicitud</button>
@@ -326,7 +331,6 @@
 		data-href="https://api.whatsapp.com/send?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios%20contables"
 		aria-label="Abrir WhatsApp">
 		<picture>
-			<source srcset="img/whatsapp.webp" type="image/webp">
 			<img class="whatsapp-float-icon" src="img/whatsapp.png" alt="WhatsApp" loading="lazy">
 		</picture>
 	</button>
@@ -347,6 +351,22 @@
 			</div>
 		</div>
 	</footer>
+
+	<!-- Banner de Consentimiento de Cookies -->
+	<div id="cookie-banner" class="cookie-banner" role="alertdialog" aria-labelledby="cookie-banner-text" aria-live="polite" hidden>
+		<div class="cookie-banner-inner">
+			<p id="cookie-banner-text" class="cookie-banner-text">
+				<span class="cookie-icon" aria-hidden="true">🍪</span>
+				<strong>Cuentas Claras</strong> utiliza cookies propias y de terceros para mejorar su experiencia y analizar el uso del sitio.
+				Al continuar navegando, acepta su uso según nuestra
+				<a href="politicas.html" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>.
+			</p>
+			<div class="cookie-banner-actions">
+				<button id="cookie-accept" class="cookie-btn cookie-btn-accept">Aceptar</button>
+				<a href="politicas.html" target="_blank" rel="noopener noreferrer" class="cookie-btn cookie-btn-more">Más información</a>
+			</div>
+		</div>
+	</div>
 
 	<script src="app.js"></script>
 </body>
