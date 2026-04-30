@@ -148,77 +148,9 @@
 				<p class="servicios-extra-pill">Consulte por cualquier otro servicio o necesidad de su negocio</p>
 			</div>
 			<div class="servicios-cta-wrap">
-				<a href="#contacto" class="btn btn-primary">Cotice su servicio</a>
+				<a href="#contacto" class="btn btn-primary cot-services">Cotice su servicio</a>
 			</div>
 		</section>
-
-
-		<!-- <section class="section servicios-destacada" id="servicios">
-			<div class="container">
-				<div class="section-heading centered">
-					<h2>Servicios clave para mantener tu empresa en orden</h2>
-					<p class="servicios-lead">Soluciones integrales y gestiones ágiles para que tu negocio esté siempre al día y sin complicaciones.</p>
-				</div>
-				<div class="servicios-tarjetas-grid">
-					<div class="servicio-tarjeta">
-						<div class="servicio-icono" aria-hidden="true">📝</div>
-						<h3>Inscripciones y Desinscripciones</h3>
-						<p>Alta y baja como contribuyente ante Hacienda.</p>
-					</div>
-					<div class="servicio-tarjeta">
-						<div class="servicio-icono" aria-hidden="true">📄</div>
-						<h3>Certificaciones Oficiales</h3>
-						<p>Constancias de ingresos para trámites bancarios.</p>
-					</div>
-					<div class="servicio-tarjeta">
-						<div class="servicio-icono" aria-hidden="true">🔍</div>
-						<h3>Cumplimiento Legal Específico</h3>
-						<p>Declaración de transparencia (RTBF) ante el BCR.</p>
-					</div>
-					<div class="servicio-tarjeta">
-						<div class="servicio-icono" aria-hidden="true">🏛️</div>
-						<h3>Gestión Municipal y Salud</h3>
-						<p>Trámites de Patentes, permisos de la Municipalidad y Ministerio de Salud.</p>
-					</div>
-					<div class="servicio-tarjeta">
-						<div class="servicio-icono" aria-hidden="true">💼</div>
-						<h3>Declaraciones Patrimoniales</h3>
-						<p>Presentación de declaraciones de Sociedades Inactivas.</p>
-					</div>
-					<div class="servicio-tarjeta">
-						<div class="servicio-icono" aria-hidden="true">💻</div>
-						<h3>Asistencia Tecnológica</h3>
-						<p>Soporte y configuración de Facturación Electrónica.</p>
-					</div>
-					<div class="servicio-tarjeta">
-						<div class="servicio-icono" aria-hidden="true">📊</div>
-						<h3>Gestión Fiscal Continua</h3>
-						<p>Declaraciones periódicas ante Hacienda (IVA - Renta / TribuCR).</p>
-					</div>
-					<div class="servicio-tarjeta">
-						<div class="servicio-icono" aria-hidden="true">👥</div>
-						<h3>Ciclo de Nómina Completo</h3>
-						<p>Planillas ante CCSS e INS. Altas, bajas y liquidaciones.</p>
-					</div>
-					<div class="servicio-tarjeta">
-						<div class="servicio-icono" aria-hidden="true">📚</div>
-						<h3>Contabilidad y Finanzas</h3>
-						<p>Servicios contables generales y elaboración de Estados Financieros.</p>
-					</div>
-					<div class="servicio-tarjeta">
-						<div class="servicio-icono" aria-hidden="true">💡</div>
-						<h3>Inteligencia de Negocios</h3>
-						<p>Presupuestos, flujos de efectivo y automatización en Excel.</p>
-					</div>
-					<div class="servicio-tarjeta">
-						<div class="servicio-icono" aria-hidden="true">🔎</div>
-						<h3>Auditoría y Consultoría</h3>
-						<p>Revisión de estados financieros y estrategias de ahorro fiscal legal.</p>
-					</div>
-				</div>
-			</div>
-		</section> -->
-
 
 		<section class="section process-section" id="proceso">
 			<div class="container">
@@ -249,14 +181,13 @@
 					</div>
 
 					<aside class="process-map-card">
-						<img src="img/mapa.webp" alt="Mapa de ubicación de Cuentas Claras" class="process-map-image">
+						<img src="#" alt="Mapa de ubicación de Cuentas Claras" class="process-map-image">
 					</aside>
-				</div>
 				</div>
 			</div>
 		</section>
 
-		
+	
 
 		<section class="section cta-section">
 			<div class="container cta-panel">
@@ -267,9 +198,9 @@
 						conversación simple.</p>
 				</div>
 				<div class="cta-actions">
+					<h3 class="title-diagnostico">Solicitar diagnóstico</h3>
 					<a href="https://api.whatsapp.com/send?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios%20contables"
-						class="btn btn-primary" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
-					<a href="#contacto" class="btn btn-secondary">Solicitar diagnóstico</a>
+						class="btn btn-primary whats-diagnostico" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 				</div>
 			</div>
 		</section>
@@ -317,18 +248,59 @@
 				<form class="contact-form">
 					<p class="contact-note">Te respondemos en menos de 24 horas.</p>
 
+
+				<div class="nombres">
+					<div>
 					<label for="nombre">Nombre</label>
 					<input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+				</div>
+					<div>
+					<label for="apellido">Apellido</label>
+					<input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+					</div>
+				</div>
 
-					<label for="contacto-info">Correo o WhatsApp</label>
-					<input type="text" id="contacto-info" name="contacto-info" placeholder="Tu mejor contacto" required>
+				<div class="selects">
+					<div>
+						<label for="negocio">Tipo de negocio</label>
+						<select id="negocio" name="negocio" required>
+							<option value="">Selecciona una opción</option>
+							<option>Persona física</option>
+							<option>Persona jurídica</option>
+							<option>Emprendimiento</option>
+						</select>
+					</div>
 
-					<label for="negocio">Tipo de negocio</label>
-					<select id="negocio" name="negocio" required>
-						<option value="">Selecciona una opción</option>
-						<option>Persona física</option>
-						<option>Empresa</option>
-					</select>
+					<div>
+						<label for="cargo">Cargo</label>
+						<select id="cargo" name="Cargo" required> 
+							<option value="">Selecciona una opción</option>
+							<option>Propietario</option>
+							<option>Gerente</option>
+							<option>Represante legal</option>
+							<option>Otro</option>
+						</select>
+					</div>
+				</div>
+
+					<label for="correo">Correo</label>
+					<input type="text" id="correo" name="correo" placeholder="Correo electrónico" required>
+
+					<label for="Contacto">Contacto</label>
+
+				<div class="telefonos">
+					<input type="text" id="Tel-Oficina" name="Tel-Oficina" placeholder="Teléfono oficina" required>
+					<input type="text" id="Celular" name="Celular" placeholder="Celular" required>
+				</div>
+				
+					<label for="Comentarios">Comentarios</label>
+					<textarea id="comentarios" name="comentarios" placeholder="Escribe brevemente tu consulta..." rows="4" required></textarea>
+
+			<label class="terminos">
+				<input type="checkbox" id="acepto" name="acepto" required>
+				<span>Acepto las <a href="politicas.html" target="_blank">políticas y términos y condiciones</a></span>
+			</label>
+
 
 					<button type="submit" class="btn btn-primary full">Enviar solicitud</button>
 				</form>
@@ -338,7 +310,7 @@
 
 
 	<button class="whatsapp-float" type="button"
-		data-href="https://api.whatsapp.com/message/4RR2AW6ZXKSTN1?autoload=1&app_absent=0"
+		data-href=""
 		aria-label="Abrir WhatsApp">
 		<img class="whatsapp-float-icon" src="img/whatsapp.png" alt="WhatsApp">
 	</button>
@@ -357,7 +329,6 @@
 				<img src="img/logo-blanco.png" alt="Logo blanco de Cuentas Claras CR" class="footer-logo">
 				<p>© 2026 Cuentas Claras. Orden financiero para negocios que quieren crecer.</p>
 			</div>
-			<a href="#inicio">Volver arriba</a>
 		</div>
 	</footer>
 

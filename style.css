@@ -351,16 +351,19 @@ main {
   transform: translateY(-2px);
 }
 
+
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-soft));
   color: #1f2b3a;
-  box-shadow: 0 12px 30px rgba(242, 190, 26, 0.35);
+  box-shadow: 0 12px 30px rgba(242, 192, 26, 0.486);
+  white-space: nowrap;
 }
 
 .btn-secondary {
   color: var(--primary);
   background: var(--card);
   border: 1px solid var(--border);
+  white-space: nowrap;
 }
 
 body.dark-theme .btn-secondary {
@@ -393,6 +396,66 @@ body.dark-theme .btn-secondary {
   border-radius: 22px;
   box-shadow: var(--shadow);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.nombres {
+  display: flex;
+  gap:10px; /*espacio entre los dos campos*/
+}
+
+.nombres label,
+.nombres div {
+  flex: 1; /*hace que ambos ocupen el mismo ancho*/
+}
+
+.telefonos{
+  display: flex;
+  gap:10px; /* espacio entre los dos campos */
+}
+.telefonos input {
+  flex: 1; /* hace que ambos ocupen el mismo ancho */
+}
+
+.selects {
+  display: flex;
+  gap: 15px; /* espacio entre los dos selects */
+}
+
+.selects div {
+  flex: 1; /* hace que cada select ocupe el mismo ancho */
+}
+
+.select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.terminos {
+  display: grid;
+  grid-template-columns: auto 1fr; /* checkbox + texto */
+  align-items: center;
+  column-gap: 6px;
+  font-size: 14px;
+}
+
+#acepto{
+  width: auto;
+}
+
+.terminos input[type="checkbox"] {
+  margin: 0;
+}
+
+textarea {
+width:100%;
+height: 60px;
+padding: 8px;
+border: none; /* elimina el borde */
+outline: none; /* elimina el borde azul al hacer clic */
+background-color: #f9f9f9; /* fondo suave */
+font: inherit;
+resize: vertical; /* permite ajustar la altura pero no el ancho */
 }
 
 body.dark-theme .hero-card,
@@ -454,6 +517,11 @@ body.dark-theme .logo-chip {
 .btn-float {
   animation: btn-float 2.8s ease-in-out infinite;
   will-change: transform, box-shadow;
+  margin-top: 50px;
+}
+
+.whats-diagnostico{
+  margin-left: 40px;
 }
 
 @keyframes btn-float {
@@ -589,6 +657,7 @@ body.dark-theme .logo-chip {
   border-radius: 999px;
   font-weight: 700;
   font-size: 0.9rem;
+  margin: 20px 0 20px 0;
 }
 
 .stats {
@@ -840,8 +909,8 @@ body.dark-theme .metric-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
+  gap: 4rem;
+  padding: 2rem 0px 2rem 3rem;
   background: linear-gradient(135deg, rgba(11, 59, 130, 0.98), rgba(23, 76, 154, 0.94));
   color: white;
   border-radius: 22px;
@@ -851,7 +920,6 @@ body.dark-theme .metric-card {
 .cta-panel .eyebrow,
 .cta-panel p {
   color: rgba(255, 255, 255, 0.88);
-  
 }
 
 .cta-actions {
@@ -1112,20 +1180,48 @@ body.dark-theme .icon {
   .two-cols,
   .process-layout,
   .process-steps,
-  .metrics-grid,
   .tax-calculator,
   .calculator-grid,
   .stats {
     grid-template-columns: 1fr;
   }
 
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .bonus-box,
   .footer-inner,
   .navbar,
-  .cta-panel,
   .nav-tools {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+  }
+
+  .cta-panel {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .cta-panel h2,
+  .cta-panel p {
+    text-align: center;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
   }
 
   .navbar {
@@ -1135,9 +1231,9 @@ body.dark-theme .icon {
   }
 
   .nav-tools,
-  .nav-links,
-  .cta-actions {
+  .nav-links {
     width: 100%;
+    justify-content: center;
   }
 
   .hero-copy,
@@ -1167,8 +1263,7 @@ body.dark-theme .icon {
   }
 
   .hero-actions,
-  .hero-highlights,
-  .cta-actions {
+  .hero-highlights {
     justify-content: center;
   }
 
@@ -1184,6 +1279,11 @@ body.dark-theme .icon {
   .hero-actions-col {
     margin-right: 0;
     width: 100%;
+    align-items: center;
+  }
+
+  .btn-primary {
+    margin-left: 0;
   }
 
   .hero-actions-info {
@@ -1223,9 +1323,18 @@ body.dark-theme .icon {
     padding: 1.15rem;
   }
 
+  .cta-panel {
+    padding: 1.75rem 1.25rem;
+    gap: 1.5rem;
+  }
+
   .calculator-actions,
   .cta-actions {
     width: 100%;
+  }
+
+  .experience-pill {
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
   }
 }
 
@@ -1235,7 +1344,8 @@ body.dark-theme .icon {
     padding: 0.62rem 0.75rem;
     border-radius: 14px;
     font-size: 0.9rem;
-    white-space: nowrap;
+    white-space: normal;
+    text-align: center;
   }
 
   .back-to-top {
@@ -1271,14 +1381,15 @@ body.dark-theme .icon {
   }
 
   .hero-actions,
-  .hero-highlights,
-  .footer-brand {
+  .hero-highlights {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   }
 
   .footer-brand {
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 0.75rem;
     width: 100%;
   }
@@ -1295,6 +1406,10 @@ body.dark-theme .icon {
   .nav-links a,
   .btn {
     width: 100%;
+  }
+
+  .btn-primary {
+    margin-left: 0;
   }
 
   .flyer-top {
@@ -1367,6 +1482,15 @@ body.dark-theme .icon {
     display: none;
   }
 
+  .cta-panel {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
+
+  .cta-actions .btn {
+    max-width: 100%;
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -1385,6 +1509,10 @@ body.dark-theme .icon {
     font-size: 0.95rem;
   }
 
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
   .result-item {
     flex-direction: column;
     align-items: flex-start;
@@ -1396,6 +1524,19 @@ body.dark-theme .icon {
 
   #servicios.section::before {
     font-size: 0.82rem;
+  }
+
+  .cta-panel {
+    padding: 1.25rem 0.85rem;
+    gap: 1.25rem;
+  }
+
+  .cta-panel h2 {
+    font-size: 1.5rem;
+  }
+
+  .eyebrow {
+    font-size: 1.2rem;
   }
 }
 
@@ -1700,3 +1841,5 @@ details[open] > summary {
   transition: none;
   z-index: 2;
 }
+
+
