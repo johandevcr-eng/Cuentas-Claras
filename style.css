@@ -504,25 +504,25 @@ body.dark-theme .logo-chip {
 }
 
 .hero-card {
-  padding: 1.5rem;
+  padding: 0;
 }
 
 .flyer-card {
   padding: 0;
   border: none;
-  border-radius: 6px;
+  border-radius: 0;
   overflow: hidden;
   width: min(100%, 420px);
   justify-self: start;
   background: transparent;
-  box-shadow: 0 18px 44px rgba(11, 59, 130, 0.28);
+  box-shadow: none;
   animation: none;
   will-change: auto;
 }
 
 .flyer-card:hover {
   transform: none;
-  box-shadow: 0 18px 44px rgba(11, 59, 130, 0.28);
+  box-shadow: none;
 }
 
 @keyframes flyer-float {
@@ -1427,6 +1427,10 @@ body.dark-theme .icon {
 @media (max-width: 640px) {
   .container {
     width: min(1120px, calc(100% - 1rem));
+  }
+
+  p {
+    font-size: 1.05rem;
   }
 
   .experience-pill {
