@@ -10,9 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Banner de consentimiento de cookies
   const cookieBanner = document.getElementById('cookie-banner');
   const cookieAcceptBtn = document.getElementById('cookie-accept');
+  const cookieRejectBtn = document.getElementById('cookie-reject');
 
   try {
-    if (cookieBanner && !localStorage.getItem('cc-cookies-accepted')) {
+    const cookieChoice = localStorage.getItem('cc-cookies-choice');
+    const legacyAccepted = localStorage.getItem('cc-cookies-accepted');
+    if (cookieBanner && !cookieChoice && !legacyAccepted) {
       cookieBanner.removeAttribute('hidden');
     }
   } catch (e) {
@@ -20,13 +23,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cookieBanner) cookieBanner.removeAttribute('hidden');
   }
 
+  function closeCookieBanner() {
+    if (cookieBanner) {
+      cookieBanner.style.animation = 'cookieSlidein 0.3s reverse both';
+      setTimeout(() => cookieBanner.setAttribute('hidden', ''), 280);
+    }
+  }
+
   if (cookieAcceptBtn) {
     cookieAcceptBtn.addEventListener('click', () => {
-      try { localStorage.setItem('cc-cookies-accepted', '1'); } catch (e) {}
-      if (cookieBanner) {
-        cookieBanner.style.animation = 'cookieSlidein 0.3s reverse both';
-        setTimeout(() => cookieBanner.setAttribute('hidden', ''), 280);
-      }
+      try { localStorage.setItem('cc-cookies-choice', 'accepted'); } catch (e) {}
+      closeCookieBanner();
+    });
+  }
+
+  if (cookieRejectBtn) {
+    cookieRejectBtn.addEventListener('click', () => {
+      try { localStorage.setItem('cc-cookies-choice', 'rejected'); } catch (e) {}
+      closeCookieBanner();
     });
   }
   const backToTopButton = document.getElementById('backToTopBtn');

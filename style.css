@@ -1771,6 +1771,18 @@ body.dark-theme .icon {
   transform: translateY(-1px);
 }
 
+.cookie-btn-reject {
+  background: #eef2f7;
+  color: #30445f;
+  border: 1.5px solid #d5dfeb;
+}
+
+.cookie-btn-reject:hover {
+  background: #e3ebf4;
+  color: #1e3048;
+  border-color: #c4d4e6;
+}
+
 .cookie-btn-more {
   background: transparent;
   color: #111111;
