@@ -1311,9 +1311,7 @@ body.dark-theme .icon {
   }
 
   .bonus-box,
-  .footer-inner,
-  .navbar,
-  .nav-tools {
+  .footer-inner {
     flex-direction: column;
     align-items: center;
   }
@@ -1652,32 +1650,71 @@ body.dark-theme .icon {
     max-width: 100%;
   }
 
-  .contact-form {
-    padding: 1rem;
+  .whatsapp-float {
+    right: 12px;
+    bottom: calc(82px + env(safe-area-inset-bottom, 0px));
   }
 
-  .contact-form input,
-  .contact-form select {
-    padding: 0.85rem 0.9rem;
-    font-size: 16px;
+  .whatsapp-float-icon {
+    width: 60px;
+    height: 60px;
   }
 
-  #servicios .servicios-info-col,
-  #servicios .servicios-cards-col {
-    padding: 1.5rem 1rem;
-    margin: 0;
+  .instagram-float {
+    right: 12px;
+    bottom: calc(82px + 60px + 16px + env(safe-area-inset-bottom, 0px));
   }
 
-}
+  .instagram-float-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hero {
+    padding-top: 132px;
+  }
+
+  .brand-logo {
+    height: 60px;
+  }
+
+  .nombres,
+  .telefonos,
+  .selects {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .whats-diagnostico {
+    margin-left: 0;
+  }
+
+  .btn-float {
+    margin-top: 1rem;
+  }
+
+  .title-diagnostico {
+    text-align: center;
+    width: 100%;
+  }
 
 @media (max-width: 480px) {
-  .container {
-    width: min(1120px, calc(100% - 1rem));
+  .nombres,
+  .telefonos,
+  .selects {
+    flex-direction: column;
+    gap: 0;
   }
 
-  .section {
-    padding: 50px 0;
+  .brand-name {
+    font-size: 1.15rem;
   }
+
+  .eyebrow {
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+  }
+}
 
   .hero {
     padding-top: 120px;
