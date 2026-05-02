@@ -1506,6 +1506,10 @@ body.dark-theme .icon {
     width: 100%;
   }
 
+  .flyer-card {
+    background: transparent;
+  }
+
   .flyer-top {
     min-height: unset;
   }
@@ -1626,7 +1630,7 @@ body.dark-theme .icon {
   .tax-intro,
   .tax-note,
   .contact-section p {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .metrics-grid {
