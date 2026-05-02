@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Banner de consentimiento de cookies
   const cookieBanner = document.getElementById('cookie-banner');
   const cookieAcceptBtn = document.getElementById('cookie-accept');
-  const cookieRejectBtn = document.getElementById('cookie-reject');
+  const cookieEssentialBtn = document.getElementById('cookie-essential');
 
   try {
     const cookieChoice = localStorage.getItem('cc-cookies-choice');
@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (cookieRejectBtn) {
-    cookieRejectBtn.addEventListener('click', () => {
-      try { localStorage.setItem('cc-cookies-choice', 'rejected'); } catch (e) {}
+  if (cookieEssentialBtn) {
+    cookieEssentialBtn.addEventListener('click', () => {
+      try { localStorage.setItem('cc-cookies-choice', 'essential-only'); } catch (e) {}
       closeCookieBanner();
     });
   }
