@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const backToTopButton = document.getElementById('backToTopBtn');
   const whatsappFloatButton = document.querySelector('.whatsapp-float[data-href]');
+  const instagramFloatButton = document.querySelector('.instagram-float[data-href]');
   const navbar = document.querySelector('.navbar');
   const menuBubble = document.querySelector('.menu-bubble');
   const navLinks = document.querySelector('.nav-links');
@@ -155,6 +156,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (whatsappFloatButton) {
     whatsappFloatButton.addEventListener('click', () => {
       const href = whatsappFloatButton.getAttribute('data-href');
+      if (href) {
+        window.open(href, '_blank', 'noopener');
+      }
+    });
+  }
+
+  if (instagramFloatButton) {
+    instagramFloatButton.addEventListener('click', () => {
+      const href = instagramFloatButton.getAttribute('data-href');
       if (href) {
         window.open(href, '_blank', 'noopener');
       }
