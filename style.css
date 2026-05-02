@@ -151,6 +151,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 130px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -238,6 +239,12 @@ main {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   z-index: 5000;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .navbar {
+    background: rgba(255, 255, 255, 0.96);
+  }
 }
 
 .nav-tools {
@@ -1135,7 +1142,7 @@ body.dark-theme .icon {
 .back-to-top {
   position: fixed;
   right: 16px;
-  bottom: 28px;
+  bottom: calc(28px + env(safe-area-inset-bottom, 0px));
   z-index: 1000;
   display: inline-flex;
   align-items: center;
@@ -1196,7 +1203,7 @@ body.dark-theme .icon {
 .whatsapp-float {
   position: fixed;
   right: 16px;
-  bottom: 96px;
+  bottom: calc(96px + env(safe-area-inset-bottom, 0px));
   z-index: 1001;
   display: inline-flex;
   align-items: center;
@@ -1388,6 +1395,11 @@ body.dark-theme .icon {
     text-align: center;
   }
 
+  .footer-credit {
+    width: 100%;
+    text-align: center;
+  }
+
   .hero-card,
   .card,
   .contact-form,
@@ -1427,7 +1439,7 @@ body.dark-theme .icon {
 
   .back-to-top {
     right: 12px;
-    bottom: 24px;
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px));
     padding: 0.65rem 0.85rem;
   }
 
@@ -1437,7 +1449,7 @@ body.dark-theme .icon {
 
   .whatsapp-float {
     right: 12px;
-    bottom: 86px;
+    bottom: calc(86px + env(safe-area-inset-bottom, 0px));
   }
 
   .whatsapp-float-icon {
@@ -1546,7 +1558,7 @@ body.dark-theme .icon {
 
   .whatsapp-float {
     right: 10px;
-    bottom: 76px;
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px));
     width: 42px;
     height: 42px;
     justify-content: center;
