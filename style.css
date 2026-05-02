@@ -1095,6 +1095,26 @@ body.dark-theme .footer {
   color: white;
 }
 
+.footer-credit {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.38);
+  text-align: right;
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+.footer-credit a {
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: color 0.18s;
+  text-decoration: none;
+}
+
+.footer-credit a:hover {
+  color: var(--accent);
+}
+
 body.dark-theme .hero-highlights li,
 body.dark-theme .stats div,
 body.dark-theme .contact-note {
