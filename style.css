@@ -1387,6 +1387,14 @@ body.dark-theme .icon {
     padding-top: 118px;
   }
 
+  .hero-actions-info-headline {
+    font-size: 1.35rem;
+  }
+
+  .hero-actions-info-desc {
+    font-size: 1.06rem;
+  }
+
   .navbar,
   .nav-tools,
   .nav-links,
