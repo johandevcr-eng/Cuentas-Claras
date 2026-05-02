@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cookieBanner = document.getElementById('cookie-banner');
   const cookieAcceptBtn = document.getElementById('cookie-accept');
   const cookieEssentialBtn = document.getElementById('cookie-essential');
+  const cookieRejectBtn = document.getElementById('cookie-reject');
 
   try {
     const cookieChoice = localStorage.getItem('cc-cookies-choice');
@@ -40,6 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (cookieEssentialBtn) {
     cookieEssentialBtn.addEventListener('click', () => {
       try { localStorage.setItem('cc-cookies-choice', 'essential-only'); } catch (e) {}
+      closeCookieBanner();
+    });
+  }
+
+  if (cookieRejectBtn) {
+    cookieRejectBtn.addEventListener('click', () => {
+      try { localStorage.setItem('cc-cookies-choice', 'rejected'); } catch (e) {}
       closeCookieBanner();
     });
   }

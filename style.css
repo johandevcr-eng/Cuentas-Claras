@@ -1890,13 +1890,13 @@ body.dark-theme .icon {
   border-color: #c4d4e6;
 }
 
-.cookie-btn-more {
+.cookie-btn-reject {
   background: transparent;
   color: #111111;
   border: 1.5px solid rgba(11, 59, 130, 0.22);
 }
 
-.cookie-btn-more:hover {
+.cookie-btn-reject:hover {
   background: rgba(11, 59, 130, 0.06);
   color: #111111;
 }
