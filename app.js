@@ -45,6 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const backToTopButton = document.getElementById('backToTopBtn');
   const whatsappFloatButton = document.querySelector('.whatsapp-float[data-href]');
+  const navbar = document.querySelector('.navbar');
+  const menuBubble = document.querySelector('.menu-bubble');
+  const navLinks = document.querySelector('.nav-links');
 
   const incomeInput = document.getElementById('ingresos');
   const expensesInput = document.getElementById('gastos');
@@ -146,6 +149,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const href = whatsappFloatButton.getAttribute('data-href');
       if (href) {
         window.open(href, '_blank', 'noopener');
+      }
+    });
+  }
+
+  if (navbar && menuBubble && navLinks) {
+    function closeMobileMenu() {
+      navbar.classList.remove('is-open');
+      menuBubble.setAttribute('aria-expanded', 'false');
+    }
+
+    menuBubble.addEventListener('click', () => {
+      const isOpen = navbar.classList.toggle('is-open');
+      menuBubble.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        closeMobileMenu();
       }
     });
   }
