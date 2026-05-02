@@ -241,8 +241,99 @@ TÉRMINOS Y CONDICIONES — Estilos específicos
     margin-top: 0.1rem;
 }
 
-/* Recuadro de aviso e-commerce futuro */
+/* Subsección dentro de una sección legal (h3) */
+.legal-section h3 {
+    font-size: 0.93rem;
+    font-weight: 700;
+    color: var(--primary-soft);
+    margin: 1.2rem 0 0.5rem;
+}
 
+/* Recuadro en cursiva estilo blockquote teal */
+.legal-quote {
+    border-left: 4px solid #2a9d8f;
+    background: rgba(42, 157, 143, 0.07);
+    border-radius: 0 10px 10px 0;
+    padding: 0.9rem 1.2rem;
+    margin: 0.9rem 0;
+    font-style: italic;
+    color: #1a6b63;
+    font-size: 0.88rem;
+    line-height: 1.65;
+}
+
+/* Tabla de datos recopilados */
+.legal-table-wrap {
+    overflow-x: auto;
+    margin: 0.9rem 0 1rem;
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    box-shadow: 0 4px 18px rgba(11, 59, 130, 0.06);
+}
+
+.legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+}
+
+.legal-table thead tr {
+    background: linear-gradient(135deg, var(--primary) 0%, #174c9a 100%);
+    color: #fff;
+}
+
+.legal-table thead th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.84rem;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+.legal-table tbody tr:nth-child(odd) {
+    background: #f6f8fc;
+}
+
+.legal-table tbody tr:nth-child(even) {
+    background: #fff;
+}
+
+.legal-table tbody tr td:nth-child(2) {
+    background: rgba(242, 190, 26, 0.14);
+    color: #7a5c00;
+    font-weight: 600;
+}
+
+.legal-table tbody td {
+    padding: 0.65rem 1rem;
+    color: var(--text);
+    line-height: 1.5;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+}
+
+.legal-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Recuadro de aviso */
+.legal-note-box {
+    background: rgba(242, 190, 26, 0.1);
+    border: 1.5px solid rgba(242, 190, 26, 0.45);
+    border-radius: 14px;
+    padding: 1.1rem 1.3rem;
+    margin: 0.9rem 0;
+}
+
+.legal-note-box p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.legal-note-box ul {
+    margin: 0;
+}
 
 /* Nota al pie del documento */
 .legal-footer-note {
