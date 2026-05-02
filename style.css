@@ -504,7 +504,10 @@ body.dark-theme .logo-chip {
 }
 
 .hero-card {
-  padding: 1.5rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .flyer-card {
@@ -514,15 +517,15 @@ body.dark-theme .logo-chip {
   overflow: hidden;
   width: min(100%, 420px);
   justify-self: start;
-  background: #111;
-  box-shadow: 0 18px 44px rgba(11, 59, 130, 0.28);
+  background: transparent;
+  box-shadow: none;
   animation: none;
   will-change: auto;
 }
 
 .flyer-card:hover {
   transform: none;
-  box-shadow: 0 18px 44px rgba(11, 59, 130, 0.28);
+  box-shadow: none;
 }
 
 @keyframes flyer-float {
@@ -584,7 +587,7 @@ body.dark-theme .logo-chip {
   object-position: top center;
   display: block;
   border-radius: 6px;
-  box-shadow: 0 8px 32px 0 rgba(11,59,130,0.10);
+  box-shadow: none;
 }
 
 .flyer-copy {
@@ -1504,10 +1507,6 @@ body.dark-theme .icon {
   .nav-links a,
   .btn {
     width: 100%;
-  }
-
-  .flyer-card {
-    background: transparent;
   }
 
   .flyer-top {
