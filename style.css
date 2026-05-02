@@ -1025,8 +1025,10 @@ body.dark-theme .faq-item summary {
   border-radius: 12px;
   background: linear-gradient(135deg, var(--accent), var(--accent-soft));
   color: #000;
+  font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .contact-form label {
@@ -1674,6 +1676,12 @@ body.dark-theme .icon {
 
   .contact-form {
     padding: 0.85rem;
+  }
+
+  .contact-note {
+    font-size: 0.70rem;
+    padding: 0.6rem 0.75rem;
+    text-align: center;
   }
 
   .contact-form input,
