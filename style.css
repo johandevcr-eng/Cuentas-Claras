@@ -1737,6 +1737,26 @@ body.dark-theme .icon {
   color: var(--accent-soft);
 }
 
+.cookie-banner-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.cookie-banner-links a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+  transition: color 0.18s;
+}
+
+.cookie-banner-links a:hover {
+  color: var(--accent-soft);
+}
+
 .cookie-banner-actions {
   display: flex;
   flex-direction: column;
