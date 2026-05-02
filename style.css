@@ -885,6 +885,11 @@ body.dark-theme .metric-card {
   border-radius: 14px;
 }
 
+#zonas {
+  text-align: center;
+  font-weight: 500;
+}
+
 .step {
   position: relative;
   display: grid;
