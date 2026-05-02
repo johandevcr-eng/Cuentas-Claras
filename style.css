@@ -431,7 +431,7 @@ body.dark-theme .btn-secondary {
   border-radius: 4px;
 }
 
-.terminos {
+.politicas {
   display: grid;
   grid-template-columns: auto 1fr; /* checkbox + texto */
   align-items: center;
@@ -439,13 +439,31 @@ body.dark-theme .btn-secondary {
   font-size: 14px;
 }
 
-#acepto{
+#politicas{
+  width: auto;
+}
+
+.politicas input[type="checkbox"] {
+  margin: 0 15px;
+}
+
+.terminos {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 6px;
+  font-size: 14px;
+}
+
+#terminos {
   width: auto;
 }
 
 .terminos input[type="checkbox"] {
-  margin: 0;
+  margin: 0 15px;
 }
+
+
 
 textarea {
 width:100%;
