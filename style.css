@@ -504,10 +504,7 @@ body.dark-theme .logo-chip {
 }
 
 .hero-card {
-  padding: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
+  padding: 1.5rem;
 }
 
 .flyer-card {
@@ -518,14 +515,14 @@ body.dark-theme .logo-chip {
   width: min(100%, 420px);
   justify-self: start;
   background: transparent;
-  box-shadow: none;
+  box-shadow: 0 18px 44px rgba(11, 59, 130, 0.28);
   animation: none;
   will-change: auto;
 }
 
 .flyer-card:hover {
   transform: none;
-  box-shadow: none;
+  box-shadow: 0 18px 44px rgba(11, 59, 130, 0.28);
 }
 
 @keyframes flyer-float {
@@ -1026,8 +1023,8 @@ body.dark-theme .faq-item summary {
 .contact-note {
   padding: 0.75rem 0.9rem;
   border-radius: 12px;
-  background: rgba(242, 190, 26, 0.14);
-  color: var(--text);
+  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+  color: #000;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
@@ -1128,8 +1125,7 @@ body.dark-theme .footer {
 body.dark-theme .hero-highlights li,
 body.dark-theme .stats div,
 body.dark-theme .contact-note {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(125, 178, 255, 0.14);
+  border: none;
 }
 
 body.dark-theme .nav-cta {
@@ -1553,6 +1549,10 @@ body.dark-theme .icon {
     white-space: normal;
     text-align: center;
     line-height: 1.25;
+  }
+
+  #servicios .servicios-grid {
+    margin-top: 3rem;
   }
 
   #servicios .section-heading.centered h2 {
