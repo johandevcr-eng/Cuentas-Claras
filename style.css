@@ -351,6 +351,7 @@ main {
   color: var(--muted);
   font-size: 1.05rem;
   max-width: 650px;
+  margin-bottom: 30px;
 }
 
 .hero-actions {
