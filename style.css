@@ -2362,11 +2362,15 @@ details[open] > summary {
 
 
 
-/* ===== CARRUSEL DE IM�GENES ===== */
+/* ===== CARRUSEL DE IMÁGENES ===== */
+
+#galeria {
+  text-align: center;
+}
 .carousel-section {
-  padding-top: 60px;
+  padding-top: 10px;
   padding-bottom: 60px;
-  background: linear-gradient(135deg, #f6f8fc 60%, #eaf1ff 100%);
+  background: #f6f8fc;
   overflow: hidden;
 }
 
@@ -2448,7 +2452,7 @@ details[open] > summary {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 1.2rem;
+  margin: 3rem 0;
 }
 
 .carousel-dot {
