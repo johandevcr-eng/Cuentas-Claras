@@ -1,5 +1,5 @@
 /* =====================================================
-TÉRMINOS Y CONDICIONES — Estilos específicos
+TÉRMINOS Y CONDICIONES / Políticas — Estilos específicos
    ===================================================== */
 
 /* Encabezado de la página legal */
@@ -370,6 +370,10 @@ TÉRMINOS Y CONDICIONES — Estilos específicos
     background: rgba(11, 59, 130, 0.06);
     box-shadow: 0 8px 22px rgba(11, 59, 130, 0.12);
     transform: translateY(-2px);
+}
+
+.legal-ordered-list {
+    list-style-type: lower-roman;
 }
 
 /* =====================================================
