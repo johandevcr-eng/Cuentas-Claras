@@ -51,6 +51,18 @@ document.addEventListener('DOMContentLoaded', () => {
       closeCookieBanner();
     });
   }
+
+  const openCookieSettings = document.getElementById('open-cookie-settings');
+  if (openCookieSettings) {
+    openCookieSettings.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (cookieBanner) {
+        cookieBanner.style.animation = '';
+        cookieBanner.removeAttribute('hidden');
+        cookieBanner.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      }
+    });
+  }
   const backToTopButton = document.getElementById('backToTopBtn');
   const whatsappFloatButton = document.querySelector('.whatsapp-float[data-href]');
   const instagramFloatButton = document.querySelector('.instagram-float[data-href]');

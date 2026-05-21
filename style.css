@@ -1130,23 +1130,57 @@ body.dark-theme .footer {
 }
 
 .footer-credit {
+  margin: 0;
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.38);
-  text-align: right;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
   line-height: 1.5;
-  flex-shrink: 0;
+  letter-spacing: 0.02em;
 }
 
 .footer-credit a {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.75);
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   transition: color 0.18s;
   text-decoration: none;
+  margin-left: 0.35rem;
 }
 
 .footer-credit a:hover {
   color: var(--accent);
+}
+
+.footer-bottom {
+  margin-top: 0.9rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-links-sep {
+  color: rgba(255, 255, 255, 0.35);
 }
 
 body.dark-theme .hero-highlights li,
@@ -1565,6 +1599,11 @@ body.dark-theme .icon {
 
   .footer-credit a {
     text-decoration: none;
+  }
+
+  .footer-links {
+    justify-content: center;
+    width: 100%;
   }
 
   .nav-links a,
