@@ -283,7 +283,7 @@
 			</div>
 		</section>
 
-		<section class="section contact-section" id="contacto">
+		<!-- <section class="section contact-section" id="contacto">
 			<div class="container contact-grid">
 				<div class="contact-heading">
 					<p class="eyebrow">Conversemos</p>
@@ -353,7 +353,7 @@
 					<button type="submit" class="btn btn-primary full">Enviar solicitud</button>
 				</form>
 			</div>
-		</section>
+		</section> -->
 	</main>
 
 
@@ -417,99 +417,6 @@
 	</div>
 
 	<script src="app.js"></script>
-	<script>
-		(function () {
-			var track = document.getElementById('carouselTrack');
-			var dotsContainer = document.getElementById('carouselDots');
-			if (!track) return;
-
-			var originalCards = Array.from(track.querySelectorAll('.carousel-card'));
-			var total = originalCards.length;
-
-			// Clonar tarjetas al inicio y al final para el efecto infinito
-			var clonesBefore = originalCards.map(function (c) { return c.cloneNode(true); });
-			var clonesAfter = originalCards.map(function (c) { return c.cloneNode(true); });
-			clonesBefore.forEach(function (c) { track.insertBefore(c, track.firstChild); });
-			clonesAfter.forEach(function (c) { track.appendChild(c); });
-
-			var allCards = track.querySelectorAll('.carousel-card');
-			// current apunta a las tarjetas reales (offset = total clonadas al inicio)
-			var current = total; // empieza en la primera tarjeta real
-			var isTransitioning = false;
-
-			// Crear dots (uno por tarjeta real)
-			for (var i = 0; i < total; i++) {
-				var dot = document.createElement('button');
-				dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-				dot.setAttribute('aria-label', 'Ir a imagen ' + (i + 1));
-				dot.dataset.index = i;
-				dot.addEventListener('click', function () {
-					if (isTransitioning) return;
-					goTo(parseInt(this.dataset.index) + total);
-				});
-				dotsContainer.appendChild(dot);
-			}
-
-			function getVisible() {
-				var w = track.parentElement.offsetWidth;
-				if (w >= 900) return 3;
-				if (w >= 560) return 2;
-				return 1;
-			}
-
-			function getCardWidth() {
-				var gap = parseInt(getComputedStyle(track).gap) || 24;
-				return allCards[0].offsetWidth + gap;
-			}
-
-			function updateDots() {
-				var realIndex = (current - total + total) % total;
-				document.querySelectorAll('.carousel-dot').forEach(function (d, i) {
-					d.classList.toggle('active', i === realIndex);
-				});
-			}
-
-			function setPosition(index, animate) {
-				track.style.transition = animate ? 'transform 0.42s cubic-bezier(.4,1,.6,1)' : 'none';
-				track.style.transform = 'translateX(-' + (index * getCardWidth()) + 'px)';
-			}
-
-			function goTo(index) {
-				if (isTransitioning) return;
-				isTransitioning = true;
-				current = index;
-				setPosition(current, true);
-				updateDots();
-			}
-
-			// Al terminar la transición, saltar sin animación si estamos en un clon
-			track.addEventListener('transitionend', function () {
-				isTransitioning = false;
-				if (current < total) {
-					current = current + total;
-					setPosition(current, false);
-				} else if (current >= total * 2) {
-					current = current - total;
-					setPosition(current, false);
-				}
-			});
-
-			// Posición inicial sin animación
-			setPosition(current, false);
-			updateDots();
-
-			document.querySelector('.carousel-btn--prev').addEventListener('click', function () {
-				goTo(current - 1);
-			});
-			document.querySelector('.carousel-btn--next').addEventListener('click', function () {
-				goTo(current + 1);
-			});
-
-			window.addEventListener('resize', function () {
-				setPosition(current, false);
-			});
-		})();
-	</script>
 </body>
 
 </html>
