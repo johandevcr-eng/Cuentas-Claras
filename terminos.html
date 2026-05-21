@@ -363,17 +363,47 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <img src="img/logo-blanco.png" alt="Logo blanco de Cuentas Claras CR" class="footer-logo">
-                <p>© 2026 Cuentas Claras. Orden financiero para negocios que quieren crecer.</p>
-            </div>
-            <div class="footer-credit">
-                <span>Diseño y desarrollo web</span><br>
-                <a href="https://osare.cr" target="_blank" rel="noopener noreferrer">OSARE</a>
-            </div>
-        </div>
-    </footer>
+		<div class="container footer-inner">
+			<div class="footer-brand">
+				<img src="img/logo-blanco.png" alt="Logo blanco de Cuentas Claras CR" class="footer-logo">
+				<p>© 2026 Cuentas Claras. Orden financiero para negocios que quieren crecer.</p>
+			</div>
+			<nav class="footer-links" aria-label="Enlaces legales">
+				<a href="terminos.html">Términos y condiciones</a>
+				<span class="footer-links-sep" aria-hidden="true">·</span>
+				<a href="politicas.html">Política de privacidad</a>
+				<span class="footer-links-sep" aria-hidden="true">·</span>
+				<a href="#" id="open-cookie-settings">Configurar cookies</a>
+			</nav>
+		</div>
+		<div class="container footer-bottom">
+			<p class="footer-credit">
+				Diseño y desarrollo web por
+				<a href="https://osare.cr" target="_blank" rel="noopener noreferrer">OSARE CR</a>
+			</p>
+		</div>
+	</footer>
+
+	<!-- Banner de Consentimiento de Cookies -->
+	<div id="cookie-banner" class="cookie-banner" role="alertdialog" aria-labelledby="cookie-banner-text" aria-live="polite" hidden>
+		<div class="cookie-banner-inner">
+			<div id="cookie-banner-text" class="cookie-banner-text">
+				<p>
+					<strong>Cuentas Claras</strong> utiliza cookies propias y de terceros para mejorar su experiencia y analizar el uso del sitio.
+					Al continuar navegando, acepta su uso según nuestra
+				</p>
+				<div class="cookie-banner-links">
+					<a href="politicas.html" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>
+					<a href="terminos.html" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a>
+				</div>
+			</div>
+			<div class="cookie-banner-actions">
+				<button id="cookie-accept" class="cookie-btn cookie-btn-accept">Aceptar</button>
+				<button id="cookie-essential" class="cookie-btn cookie-btn-essential">Solo esenciales</button>
+				<button id="cookie-reject" class="cookie-btn cookie-btn-reject" type="button">Rechazar</button>
+			</div>
+		</div>
+	</div>
 
     <script src="app.js"></script>
 </body>
