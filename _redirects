@@ -3,3 +3,9 @@
  
 # Redirigir www a non-www — URL canónica definitiva 
 https://www.cuentasclarascr.com/*  https://cuentasclarascr.com/:splat  301!
+
+# URLs limpias para documentos legales
+/terminos   /terminos.html   200
+/terminos/  /terminos.html   200
+/politicas  /politicas.html  200
+/politicas/ /politicas.html  200
