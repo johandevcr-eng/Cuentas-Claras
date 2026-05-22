@@ -1,2 +1,5 @@
-# www a non-www cuentasclarascr
-https://www.cuentasclarascr.com/*  https://cuentasclarascr.com/:splat 301!
+# _redirects — raíz del repositorio (mismo nivel que index.html) 
+# Nombre exacto: _redirects (sin extensión) 
+ 
+# Redirigir www a non-www — URL canónica definitiva 
+https://www.cuentasclarascr.com/*  https://cuentasclarascr.com/:splat  301!
