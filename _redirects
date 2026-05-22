@@ -1,0 +1,8 @@
+# Redireccion www a non-www (URL canonica sin www)
+https://www.cuentasclarascr.com/*    https://cuentasclarascr.com/:splat    301!
+
+# Paginas del sitio: forzar URLs limpias sin extension .html
+/politicas.html    /politicas    301!
+/terminos.html     /terminos     301!
+
+
