@@ -1,0 +1,5 @@
+# robots.txt — raíz del repositorio 
+User-agent: * 
+Allow: / 
+ 
+Sitemap: https://cuentasclarascr.com/sitemap.xml 
