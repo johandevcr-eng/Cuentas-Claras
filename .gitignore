@@ -33,3 +33,6 @@ Thumbs.db
 # Sistema
 .htaccess.bak
 config.bak
+
+# Local Netlify folder
+.netlify
