@@ -1,0 +1,15 @@
+# Reglas para imágenes y archivos estáticos
+/img/*
+  cache-control: public, max-age=31536000, immutable
+
+# Reglas para archivos JS y CSS (si tienen hash en el nombre)
+/assets/*
+  cache-control: public, max-age=31536000, immutable
+
+# Para el resto de archivos o si no usas carpetas específicas
+/*.webp
+  cache-control: public, max-age=31536000, immutable
+/*.png
+  cache-control: public, max-age=31536000, immutable
+/*.jpg
+  cache-control: public, max-age=31536000, immutable
