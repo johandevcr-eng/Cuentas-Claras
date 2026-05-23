@@ -4,7 +4,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/bebas-neue-v16-latin-regular.woff2') format('woff2');
+  src: url('./fonts/bebas-neue-v16-latin-regular.woff2') format('woff2');
 }
 
 /* Noto Sans Regular */
@@ -13,7 +13,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/noto-sans-v27-latin-regular.woff2') format('woff2');
+  src: url('./fonts/noto-sans-v27-latin-regular.woff2') format('woff2');
 }
 
 /* Noto Sans 900 */
@@ -22,7 +22,7 @@
   font-style: normal;
   font-weight: 900;
   font-display: swap;
-  src: url('/fonts/noto-sans-v42-latin-900.woff2') format('woff2');
+  src: url('./fonts/noto-sans-v42-latin-900.woff2') format('woff2');
 }
 
 
