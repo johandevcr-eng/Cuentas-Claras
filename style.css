@@ -134,7 +134,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("img/fondo-banner.png");
+  background-image: url("img/fondo-banner.jpg");
   background-size: 15% auto;
   background-position: left top;
   background-repeat: no-repeat;
