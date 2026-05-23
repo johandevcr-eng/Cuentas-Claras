@@ -62,20 +62,54 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuBubble = document.querySelector('.menu-bubble');
   const navLinks = document.querySelector('.nav-links');
 
-  // Animación de entrada para secciones y tarjetas al hacer scroll
-  function revealOnScroll() {
-    const elements = document.querySelectorAll('.section, .hero-card, .card, .step, .faq-item');
-    const triggerBottom = window.innerHeight * 0.92;
-    elements.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < triggerBottom) {
-        el.classList.add('visible');
-      }
-    });
+  var revealElements = Array.from(document.querySelectorAll('.section, .hero-card, .card, .step, .faq-item'));
 
-    if (backToTopButton) {
-      backToTopButton.classList.toggle('is-visible', window.scrollY > 220);
+  function updateBackToTopVisibility() {
+    if (!backToTopButton) return;
+    backToTopButton.classList.toggle('is-visible', window.scrollY > 220);
+  }
+
+  function setupRevealAnimations() {
+    if (!revealElements.length) return;
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -8% 0px',
+        threshold: 0
+      });
+
+      revealElements.forEach(function (el) {
+        observer.observe(el);
+      });
+      return;
     }
+
+    // Fallback para navegadores sin IntersectionObserver
+    function fallbackReveal() {
+      var triggerBottom = window.innerHeight * 0.92;
+      revealElements = revealElements.filter(function (el) {
+        if (el.getBoundingClientRect().top < triggerBottom) {
+          el.classList.add('visible');
+          return false;
+        }
+        return true;
+      });
+
+      if (!revealElements.length) {
+        window.removeEventListener('scroll', fallbackReveal);
+      }
+    }
+
+    fallbackReveal();
+    window.addEventListener('scroll', fallbackReveal, { passive: true });
   }
 
   if (backToTopButton) {
@@ -142,9 +176,11 @@ document.addEventListener('DOMContentLoaded', () => {
 			var track = document.getElementById('carouselTrack');
 			var dotsContainer = document.getElementById('carouselDots');
 			if (!track) return;
+      if (!dotsContainer) return;
 
 			var originalCards = Array.from(track.querySelectorAll('.carousel-card'));
 			var total = originalCards.length;
+      if (!total) return;
 
 			// Clonar tarjetas al inicio y al final para el efecto infinito
 			var clonesBefore = originalCards.map(function (c) { return c.cloneNode(true); });
@@ -153,6 +189,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			clonesAfter.forEach(function (c) { track.appendChild(c); });
 
 			var allCards = track.querySelectorAll('.carousel-card');
+      var prevBtn = document.querySelector('.carousel-btn--prev');
+      var nextBtn = document.querySelector('.carousel-btn--next');
+      var dotButtons = [];
+      var cachedCardWidth = 0;
 			// current apunta a las tarjetas reales (offset = total clonadas al inicio)
 			var current = total; // empieza en la primera tarjeta real
 			var isTransitioning = false;
@@ -167,17 +207,26 @@ document.addEventListener('DOMContentLoaded', () => {
 					if (isTransitioning) return;
 					goTo(parseInt(this.dataset.index) + total);
 				});
+        dotButtons.push(dot);
 				dotsContainer.appendChild(dot);
 			}
 
-			function getCardWidth() {
+      function measureCardWidth() {
+        if (!allCards.length) return;
 				var gap = parseInt(getComputedStyle(track).gap) || 24;
-				return allCards[0].offsetWidth + gap;
+        cachedCardWidth = allCards[0].offsetWidth + gap;
+      }
+
+      function getCardWidth() {
+        if (!cachedCardWidth) {
+          measureCardWidth();
+        }
+        return cachedCardWidth;
 			}
 
 			function updateDots() {
 				var realIndex = (current - total + total) % total;
-				document.querySelectorAll('.carousel-dot').forEach(function (d, i) {
+        dotButtons.forEach(function (d, i) {
 					d.classList.toggle('active', i === realIndex);
 				});
 			}
@@ -208,21 +257,38 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 
 			// Posición inicial sin animación
+      measureCardWidth();
 			setPosition(current, false);
 			updateDots();
 
-			document.querySelector('.carousel-btn--prev').addEventListener('click', function () {
-				goTo(current - 1);
-			});
-			document.querySelector('.carousel-btn--next').addEventListener('click', function () {
-				goTo(current + 1);
-			});
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+          goTo(current - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+          goTo(current + 1);
+        });
+      }
 
 			window.addEventListener('resize', function () {
+        measureCardWidth();
 				setPosition(current, false);
 			});
 		})();
 
-  revealOnScroll();
-  window.addEventListener('scroll', revealOnScroll);
+  setupRevealAnimations();
+  updateBackToTopVisibility();
+
+  var scrollTicking = false;
+  window.addEventListener('scroll', function () {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(function () {
+      updateBackToTopVisibility();
+      scrollTicking = false;
+    });
+  }, { passive: true });
 });
