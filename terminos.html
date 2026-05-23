@@ -52,13 +52,20 @@ cuentasclaras.jpg"
         class="brand brand-image-link"
         aria-label="Cuentas Claras CR inicio"
       >
+      
+      <picture>
+        <source srcset="./img/logo-vacio.webp" type="image/webp" />
+
         <img
-          src="img/logo-vacio.png"
+          src="./img/logo-vacio.png"
           alt="Logo Cuentas Claras CR"
           class="brand-logo"
           width="512"
           height="512"
+          fetchpriority="high"
         />
+      </picture>
+
         <span class="brand-name">Cuentas Claras CR</span>
       </a>
       <button
@@ -668,7 +675,7 @@ cuentasclaras.jpg"
       <div class="container footer-inner">
         <div class="footer-brand">
           <img
-            src="img/logo-blanco.png"
+            src="./img/logo-blanco.png"
             alt="Logo blanco de Cuentas Claras CR"
             class="footer-logo"
             width="1024"
@@ -680,9 +687,9 @@ cuentasclaras.jpg"
           </p>
         </div>
         <nav class="footer-links" aria-label="Enlaces legales">
-          <a href="/terminos">Términos y condiciones</a>
+          <a href="terminos.html">Términos y condiciones</a>
           <span class="footer-links-sep" aria-hidden="true">·</span>
-          <a href="/politicas">Política de privacidad</a>
+          <a href="politicas.html">Política de privacidad</a>
           <span class="footer-links-sep" aria-hidden="true">·</span>
           <a href="#" id="open-cookie-settings">Configurar cookies</a>
         </nav>
@@ -714,10 +721,10 @@ cuentasclaras.jpg"
             continuar navegando, acepta su uso según nuestra
           </p>
           <div class="cookie-banner-links">
-            <a href="/politicas" target="_blank" rel="noopener noreferrer"
+            <a href="politicas.html" target="_blank" rel="noopener noreferrer"
               >Política de Privacidad</a
             >
-            <a href="/terminos" target="_blank" rel="noopener noreferrer"
+            <a href="terminos.html" target="_blank" rel="noopener noreferrer"
               >Términos y Condiciones</a
             >
           </div>
