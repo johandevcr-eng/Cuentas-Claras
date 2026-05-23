@@ -172,11 +172,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  (function () {
+  function initCarousel() {
 			var track = document.getElementById('carouselTrack');
 			var dotsContainer = document.getElementById('carouselDots');
 			if (!track) return;
       if (!dotsContainer) return;
+      if (track.dataset.initialized === 'true') return;
+      track.dataset.initialized = 'true';
 
 			var originalCards = Array.from(track.querySelectorAll('.carousel-card'));
 			var total = originalCards.length;
@@ -277,7 +279,36 @@ document.addEventListener('DOMContentLoaded', () => {
         measureCardWidth();
 				setPosition(current, false);
 			});
-		})();
+		}
+
+  function scheduleCarouselInit() {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(function () {
+        initCarousel();
+      }, { timeout: 1200 });
+      return;
+    }
+    setTimeout(initCarousel, 120);
+  }
+
+  var carouselSection = document.querySelector('.carousel-section');
+  if (carouselSection && 'IntersectionObserver' in window) {
+    var carouselObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          scheduleCarouselInit();
+          obs.disconnect();
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '320px 0px',
+      threshold: 0
+    });
+    carouselObserver.observe(carouselSection);
+  } else {
+    scheduleCarouselInit();
+  }
 
   setupRevealAnimations();
   updateBackToTopVisibility();
