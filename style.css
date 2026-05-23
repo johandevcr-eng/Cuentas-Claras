@@ -360,6 +360,10 @@ main {
   text-align: left;
 }
 
+#contacto, #dudas{
+  text-align: center;
+}
+
 #soluciones {
   font-size: 2.5rem;
 }
