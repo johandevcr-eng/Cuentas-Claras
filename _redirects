@@ -3,6 +3,11 @@
  
 # Redirigir www a non-www — URL canónica definitiva 
 https://www.cuentasclarascr.com/*  https://cuentasclarascr.com/:splat  301!
+https://www.:subdomain.netlify.app/*  https://:subdomain.netlify.app/:splat  301!
+
+# Redirecciones canónicas .html -> URL limpia
+/terminos.html   /terminos   301!
+/politicas.html  /politicas  301!
 
 # URLs limpias para documentos legales
 /terminos   /terminos.html   200
