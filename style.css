@@ -143,6 +143,12 @@ body::before {
   pointer-events: none;
 }
 
+@media (max-width: 1024px) {
+  body::before {
+    display: none;
+  }
+}
+
 a {
   text-decoration: none;
 }
