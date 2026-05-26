@@ -1,3 +1,11 @@
+# Headers de seguridad para todas las rutas
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+
 # Reglas para imágenes y archivos estáticos
 /img/*
   cache-control: public, max-age=31536000, immutable
