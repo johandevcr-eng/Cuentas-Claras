@@ -920,6 +920,32 @@ main > .section.muted:first-of-type {
   object-fit: contain;
 }
 
+.facebook-float {
+  position: fixed;
+  right: 22px;
+  bottom: calc(165px + 50px + 15px + env(safe-area-inset-bottom, 0px));
+  z-index: 1001;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.facebook-float-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.whatsapp-float-icon,
+.instagram-float-icon,
+.facebook-float-icon {
+  display: block;
+}
+
 @media (max-width: 1024px) {
   .container {
     width: min(1120px, calc(100% - 2rem));
@@ -1223,18 +1249,28 @@ main > .section.muted:first-of-type {
   }
 
   .whatsapp-float-icon {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
   }
 
   .instagram-float {
     right: 12px;
-    bottom: calc(82px + 60px + 16px + env(safe-area-inset-bottom, 0px));
+    bottom: calc(82px + 56px + 12px + env(safe-area-inset-bottom, 0px));
   }
 
   .instagram-float-icon {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .facebook-float {
+    right: 12px;
+    bottom: calc(82px + 56px + 12px + 56px + 12px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .facebook-float-icon {
+    width: 56px;
+    height: 56px;
   }
 
   .brand-logo {
@@ -1309,6 +1345,31 @@ main > .section.muted:first-of-type {
   .btn {
     padding: 0.85rem 1rem;
     font-size: 0.95rem;
+  }
+
+  .whatsapp-float,
+  .instagram-float,
+  .facebook-float {
+    right: 10px;
+  }
+
+  .whatsapp-float {
+    bottom: calc(78px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .instagram-float {
+    bottom: calc(78px + 52px + 10px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .facebook-float {
+    bottom: calc(78px + 52px + 10px + 52px + 10px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .whatsapp-float-icon,
+  .instagram-float-icon,
+  .facebook-float-icon {
+    width: 52px;
+    height: 52px;
   }
 
   #servicios .servicios-info-col,
